@@ -1,0 +1,11 @@
+<h2>New Diary</h2>
+
+<%= form_for(@diary, url: diaries_path, method: :post) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %><br>
+	<%= f.label :image %>
+	<%= f.attachment_field :image %><br>
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+	<%= f.submit 'Create Diary' %>
+<% end %>

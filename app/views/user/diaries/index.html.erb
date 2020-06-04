@@ -1,0 +1,11 @@
+<div class="container main-container">
+	<div class="row">
+		<div class="col-md-3">
+			<%= render 'user/users/profile', user: current_user %>
+		</div>
+		<div class="col-md-9">
+			<h2>Diary Index</h2>
+			<%= render 'list', diaries: @diaries %>
+		</div>
+	</div>
+</div>

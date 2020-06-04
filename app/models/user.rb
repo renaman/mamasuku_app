@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  attachment :profile_image
+
   has_many :diaries, dependent: :destroy
   has_many :diary_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -27,4 +29,9 @@ class User < ApplicationRecord
   def following(user)
   	following_user.include?(user)
   end
+
+  def active_for_authentication?
+  	super && self.is_active
+  end
+  
 end

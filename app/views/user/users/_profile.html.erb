@@ -1,0 +1,16 @@
+<table class="table">
+	<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpg', fallback: "human.jpg" %>
+	<tr>
+		<th>Name</th>
+		<th><%= user.name %></th>
+	</tr>
+	<tr>
+		<th>Age</th>
+		<th><%= user.age %></th>
+	</tr>
+	<tr>
+		<th>Introduction</th>
+		<th><%= user.introduction %></th>
+	</tr>
+</table>
+<%= link_to 'Edit', edit_user_path(user) %>

@@ -10,6 +10,29 @@
   </head>
 
   <body>
+    <header class="top-head">
+      <div class="nav-image">
+        <img src="/assets/logo" style="width:200px; height:200px;">
+      </div>
+      <nav class="nav">
+        <ul class="nav-list">
+        <% if user_signed_in? %>
+        <li><%= link_to 'Diary', diaries_path, class:"list-btn" %></li>
+        <li><%= link_to 'New', new_diary_path %></li>
+        <li><%= link_to 'My Page', user_path(current_user) %></li>
+        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+        <% elsif admin_signed_in? %>
+        <li><%= link_to 'User', users_path %></li>
+        <li><%= link_to 'Diary', diaries_path %></li>
+        <% else %>
+        <li><%= link_to 'Top', root_path %></li>
+        <li><%= link_to 'About', homes_about_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Log In', new_user_session_path %></li>
+        <% end %>
+      </nav>
+    </header>
     <%= yield %>
+    <footer></footer>
   </body>
 </html>

@@ -1,0 +1,13 @@
+<h2>Detail Diary</h2>
+
+<%= form_for(@diary, url: diary_path(@diary), method: :patch) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %><br>
+	<%= f.label :image %>
+	<%= f.attachment_field :image %><br>
+	<%= f.label :remove_image %>
+	<%= f.check_box :remove_image %><br />
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+	<%= f.submit 'Update Diary' %>
+<% end %>

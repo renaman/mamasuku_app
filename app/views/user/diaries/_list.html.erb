@@ -1,0 +1,22 @@
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Title</th>
+			<th>Follow</th>
+			<th>Favorite</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% diaries.each do |diary| %>
+		<tr>
+			<td></td>
+			<td>
+				<%= link_to diary.title, diary_path(diary) %>
+			</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
