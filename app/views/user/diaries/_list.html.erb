@@ -3,8 +3,9 @@
 		<tr>
 			<th></th>
 			<th>Title</th>
-			<th>Follow</th>
 			<th>Favorite</th>
+			<th>Comment</th>
+			<th>Follow</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,7 +15,12 @@
 			<td>
 				<%= link_to diary.title, diary_path(diary) %>
 			</td>
-			<td></td>
+			<td class="diary_<%= diary.id %>">
+				<!-- 階層を分けているのでuser/diaries/favoriteのように詳しく記述する必要がある。 -->
+				<!-- diaryを定義できていないとエラー表示があったので、render内でdiaryの記述を追加した。 -->
+				<%= render 'user/diaries/favorite', diary: diary, favorites: diary.favorites %>
+			</td>
+			<td><%= diary.diary_comments.count %>件</td>
 			<td></td>
 		</tr>
 		<% end %>

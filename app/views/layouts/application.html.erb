@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
   </head>
 
   <body>
@@ -32,6 +33,15 @@
         <% end %>
       </nav>
     </header>
+    <%= search_form_for @search, url: search_path do |f| %>
+      <div class="control-group">
+        <%= f.label :body_or_user_name_cont, 'キーワード' %>
+        <%= f.text_field :body_or_user_name_cont  %>
+        <%= f.label :user_age_eq %>
+        <%= f.select :user_age_eq, [["20代未満", "20代未満"], ["20代前半", "20代前半"], ["20代後半"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"], ["60代", "60代"]], include_blank: "選択してください" %>
+        <%= f.submit 'Search' %>
+      </div>
+    <% end %>
     <%= yield %>
     <footer></footer>
   </body>

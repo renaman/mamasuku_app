@@ -9,6 +9,14 @@
 		<th><%= user.age %></th>
 	</tr>
 	<tr>
+		<% if current_user != user %>
+			<th>
+				<%= link_to 'Chat Room', chat_path(user.id) %>
+			</th>
+			<th></th>
+		<% end %>
+	</tr>
+	<tr>
 		<th>Introduction</th>
 		<th><%= user.introduction %></th>
 	</tr>

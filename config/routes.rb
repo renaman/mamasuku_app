@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   	end
   	get 'leave' => 'users#leave'
   	get 'hide' => 'users#hide'
-  	get 'chat/:id' => 'chat#show', as: 'chat'
+  	get 'chat/:id' => 'chats#show', as: 'chat'
   	resources :chats, only: [:create]
   	resources :contacts, only: [:index, :create]
   	get 'contacts/thanxs' => 'contacts#thanxs'

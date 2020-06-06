@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
+	before_action :set_ransack_diary
 
 	def after_sign_up_path_for(resource)
 		root_path
@@ -21,6 +22,10 @@ class ApplicationController < ActionController::Base
 		  when :user
 		  	root_path
 		end
+	end
+
+	def set_ransack_diary
+		@search = Diary.search(params[:q])
 	end
 
 	protected

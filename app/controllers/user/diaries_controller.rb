@@ -23,6 +23,8 @@ class User::DiariesController < ApplicationController
 	def show
 		@diary = Diary.find(params[:id])
 		@user = @diary.user
+		@diary_comment = DiaryComment.new
+		@diary_comments = @diary.diary_comments
 	end
 
 	def edit
