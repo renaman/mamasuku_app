@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #admins
   devise_for :admins, :controllers => {
-  	:sessions => 'admins_sessions'
+  	:sessions => 'admins/sessions'
   }
 
   #users
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   #admin
   namespace :admin do
   	get 'top' => 'homes#top'
+    get 'diaries/list' => 'diaries/list'
   	resources :users, only: [:index, :show, :edit, :update]
   	resources :diaries, only: [:index, :show, :destroy]
   end

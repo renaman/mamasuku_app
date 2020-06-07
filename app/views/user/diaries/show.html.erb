@@ -4,20 +4,26 @@
 			<%= render 'user/users/profile', user: @user %>
 		</div>
 		<div class="col-md-9">
+			<div class="title-head">
+				Title:<%= @diary.title %>
+			</div>
+			<div class="image-content">
+				<%= attachment_image_tag @diary, :image, :fill, 400, 300, format: 'jpg' %>
+			</div>
 			<div class="diary_content">
-				<%= @diary.title %>
-				<%= attachment_image_tag @diary, :image, :fill, 250, 250, format: 'jpg' %>
-				<%= @diary.body %>
-
-				<%= link_to 'Edit', edit_diary_path(@diary) %>
+				<%= simple_format(@diary.body) %>
+			</div>
+			<div class="bottom-box">
+				<%= link_to 'Edit', edit_diary_path(@diary) %><br>
 				<span id="diary_<%= @diary.id %>">
 					<%= render 'favorite', diary: @diary, favorites: @diary.favorites %>
 				</span>
 				<%= render 'comment', diary_comments: @diary.diary_comments %>
 				<%= form_with model:[@diary, @diary_comment], method: :post do |f| %>
-					<%= f.text_area :comment, placeholder: "コメントをここに" %>
+					<%= f.text_area :comment, placeholder: "コメントをここに", size: "80x5" %>
 					<%= f.submit "Comment Up" %>
 				<% end %>
+			</div>
 			</div>
 		</div>
 	</div>

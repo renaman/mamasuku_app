@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			Edit User Page
+			<%= form_for(@user, url: admin_user_path(@user)) do |f| %>
+				<%= f.label :name %><br />
+				<%= f.text_field :name %>
+				<%= f.label :email %><br />
+				<%= f.text_field :email %>
+				<%= f.label :postal_code %><br />
+				<%= f.text_field :postal_code %>
+				<%= f.label :prefecture_code %><br />
+				<%= f.text_field :prefecture_code %>
+				<%= f.label :city %><br />
+				<%= f.text_field :city %>
+				<%= f.label :street %><br />
+				<%= f.text_field :street %>
+				<label>
+					<%= f.radio_button :is_active, "true" %>有効
+				</label>
+				<lavel>
+					<%= f.radio_button :is_active, "false" %>退会済み
+				</lavel>
+				<%= f.submit 'Up Date' %>
+			<% end %>
+		</div>
+	</div>
+</div>

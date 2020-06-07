@@ -1,5 +1,5 @@
 <table class="table">
-	<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpg', fallback: "human.jpg" %>
+	<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "130x110", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
 	<tr>
 		<th>Name</th>
 		<th><%= user.name %></th>
@@ -21,4 +21,4 @@
 		<th><%= user.introduction %></th>
 	</tr>
 </table>
-<%= link_to 'Edit', edit_user_path(user) %>
+<%= link_to '',edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-cog edit_user_#{user.id}" %>

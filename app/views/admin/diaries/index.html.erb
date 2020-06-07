@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<%= @user.name %>さんのDiary詳細
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Days</th>
+						<th>Title</th>
+						<th></th>
+					</tr>
+				</thead>
+				<% @diaries.each do |diary| %>
+					<tbody>
+						<tr>
+							<td><%= diary.created_at.strftime('%Y/%m/%d') %></td>
+							<td><%= diary.title %></td>
+							<td>
+								
+							</td>
+						</tr>
+					</tbody>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

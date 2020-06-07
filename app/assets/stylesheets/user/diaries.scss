@@ -1,3 +1,25 @@
 // Place all the styles related to the user/diaries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.title-head {
+	background-color: #F8E3F0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+.image-content {
+	text-align: center;
+}
+.diary_content {
+	text-align: center;
+}
+.bottom-box {
+	border: 2px solid #F8E3F0;
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+}
