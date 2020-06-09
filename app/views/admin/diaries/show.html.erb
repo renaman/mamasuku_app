@@ -3,7 +3,7 @@
 		<div class="col-md-12">
 			<%= @diary.title %>
 			<%= @diary.body %>
-			<%= link_to 'Destroy', admin_diary_path, method: :delete %>
+			<%= link_to 'Destroy', admin_diary_path(@diary), method: :delete %>
 		</div>
 	</div>
 </div>

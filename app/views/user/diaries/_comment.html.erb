@@ -8,7 +8,7 @@
 		</td>
 		<td><%= diary_comment.comment %></td>
 		<% unless current_user != diary_comment.user %>
-		<td><%= link_to 'Destroy', diary_diary_comment_path(diary_id: @diary.id, diary_comment_id: diary_comment.id), method: :delete %></td>
+		<td><%= link_to 'Destroy', diary_diary_comment_path(diary_id: @diary.id, id: diary_comment.id), method: :delete, remote: true %></td>
 		<% end %>
 	</tr>
 <% end %>

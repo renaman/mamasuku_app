@@ -20,5 +20,23 @@
 		<th>Introduction</th>
 		<th><%= user.introduction %></th>
 	</tr>
+	<tr>
+		<th>Follow</th>
+		<th>
+			<%= render 'user/diaries/follow', user: @user %>
+		</th>
+	</tr>
+	<tr>
+		<th>follows</th>
+		<th><%= link_to user.follower.count, user_follows_path(user) %></th>
+	</tr>
+	<tr>
+		<th>followers</th>
+		<th><%= link_to user.followed.count, user_followers_path(user) %></th>
+	</tr>
+	<tr>
+		<th>Notice</th>
+		<th><%= link_to 'notice' %></th>
+	</tr>
 </table>
 <%= link_to '',edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-cog edit_user_#{user.id}" %>

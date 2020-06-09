@@ -18,12 +18,19 @@ class User::ChatsController < ApplicationController
 	end
 
 	def create
-		@chat = current_user.chats.new(chat_params)
+		@chat = current_user.chats.new(chat_params)#チャット作成
 		@chat.save
+		notification = current_user.active_notifications.new(#notification作成
+			chat_id: @chat.id,
+			visiter_id: chat_params[:user_id],#hidden_fieldで送られてきたuser_id
+			visited_id: current_user.id,
+			action: "chat"
+		)
+		notification.save
 	end
 
 	private
 	def chat_params
-		params.require(:chat).permit(:message, :room_id)
+		params.require(:chat).permit(:message, :room_id, :user_id)
 	end
 end

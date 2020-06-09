@@ -1,9 +1,9 @@
 <div class="container main-container">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<%= render 'user/users/profile', user: @user %>
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<div class="title-head">
 				Title:<%= @diary.title %>
 			</div>
@@ -18,8 +18,10 @@
 				<span id="diary_<%= @diary.id %>">
 					<%= render 'favorite', diary: @diary, favorites: @diary.favorites %>
 				</span>
-				<%= render 'comment', diary_comments: @diary.diary_comments %>
-				<%= form_with model:[@diary, @diary_comment], method: :post do |f| %>
+				<table class="show-tb comment_<%= @diary.id %>">
+					<%= render 'comment', diary_comments: @diary.diary_comments %>
+				</table>
+				<%= form_with model:[@diary, @diary_comment], method: :post, data: {remote: true} do |f| %>
 					<%= f.text_area :comment, placeholder: "コメントをここに", size: "80x5" %>
 					<%= f.submit "Comment Up" %>
 				<% end %>

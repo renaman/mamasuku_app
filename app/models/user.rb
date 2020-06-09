@@ -16,18 +16,20 @@ class User < ApplicationRecord
   has_many :user_rooms
   has_many :chats
   has_many :rooms, through: :user_rooms
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
 
   def follow(user_id)
-  	follower.create(followed_id: user.id)
+  	follower.create(followed_id: user_id)
   end
 
   def unfollow(user_id)
-  	follower.find_by(followed_id: user.id)
+  	follower.find_by(followed_id: user_id).destroy
   end
 
-  def following(user)
-  	following_user.include?(user)
+  def following?(user)
+    following_user.include?(user)
   end
 
   def active_for_authentication?

@@ -6,7 +6,6 @@ class User::DiaryCommentsController < ApplicationController
 		@diary_comment.user_id = current_user.id
 		if @diary_comment.save
 			flash[:notice] = "Comment was successfully created."
-			redirect_to diary_path(@diary.id)
 		else
 			@diary_comments = DiaryComment.where(diary_id: @diary.id)
 			render '/diaries/show'
@@ -15,14 +14,11 @@ class User::DiaryCommentsController < ApplicationController
 
 	def destroy
 		@diary = Diary.find(params[:diary_id])
-		@diary_comment = DiaryComment.find(params[:diary_comment_id])#user_idがnilと言われたのでparamsにuser_idを入れた
-		print(params)
-		print(current_user)
+		@diary_comment = DiaryComment.find(params[:id])#user_idがnilと言われたのでparamsにuser_idを入れた
 		if @diary_comment.user != current_user
 			redirect_to request_referer
 		end
 		@diary_comment.destroy
-		redirect_to diary_path(@diary.id)
 	end
 
 	private

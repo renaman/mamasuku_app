@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   #admin
   namespace :admin do
   	get 'top' => 'homes#top'
-    get 'diaries/list' => 'diaries/list'
   	resources :users, only: [:index, :show, :edit, :update]
   	resources :diaries, only: [:index, :show, :destroy]
   end
@@ -39,6 +38,7 @@ Rails.application.routes.draw do
   	resources :contacts, only: [:index, :create]
   	get 'contacts/thanxs' => 'contacts#thanxs'
   	get 'search' => 'search#search'
+    resources :notifications, only: [:index]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

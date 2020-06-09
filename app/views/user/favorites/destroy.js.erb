@@ -1,4 +1,4 @@
-if (location.pathname == '/diaries' || location.pathname.match("/users/[1-9]*")) {
+if (location.pathname == '/diaries' || location.pathname == '/search' || location.pathname.match("/users/[1-9]*")) {
 	$(".diary_<%= @diary.id %>").html("<%= j(render 'user/diaries/favorite', diary: @diary, favorites: @diary.favorites) %>")
 } else {
     $("#diary_<%= @diary.id %>").html("<%= j(render 'user/diaries/favorite', diary: @diary, favorites: @diary.favorites) %>")

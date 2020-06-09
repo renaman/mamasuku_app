@@ -10,6 +10,7 @@ class Admin::DiariesController < ApplicationController
 	end
 
 	def destroy
+		@user = User.find(params[:user_id])
 		@diary = Diary.find(params[:id])
 		@diary.destroy
 		redirect_to admin_diaries_path

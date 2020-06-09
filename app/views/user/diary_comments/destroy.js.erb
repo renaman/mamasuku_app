@@ -1,0 +1,1 @@
+$(".comment_<%= @diary.id %>").html("<%= j(render 'user/diaries/comment', diary_comments: @diary.diary_comments) %>");

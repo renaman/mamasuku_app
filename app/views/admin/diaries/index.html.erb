@@ -16,7 +16,7 @@
 							<td><%= diary.created_at.strftime('%Y/%m/%d') %></td>
 							<td><%= diary.title %></td>
 							<td>
-								
+								<%= link_to 'Show', admin_diary_path(diary) %>
 							</td>
 						</tr>
 					</tbody>

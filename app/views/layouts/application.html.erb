@@ -19,8 +19,7 @@
         <ul class="nav-list">
           <% if request.url.include?('admin') %>
             <% if admin_signed_in? %>
-              <li><%= link_to 'User', admin_users_path %></li>
-              <li><%= link_to 'Diary', admin_diaries_path %></li>
+              <li><%= link_to 'User Page', admin_users_path %></li>
               <li><%= link_to 'Log Out', destroy_admin_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to 'User Page', root_path %></li>
@@ -46,13 +45,13 @@
         <div class="control-group text-center">
         <!-- @diaryをsearchコントローラで定義しているのでbodyはそのままのカラム名でok,nameはテーブルメイから記述 -->
         <!-- diaryとuserはリレーションであるため、このような検索をすることができる -->
-          <% f.label :body_or_user_name_cont, 'キーワード' %>キーワード検索:
+          <% f.label :body_or_user_name_cont, 'キーワード' %>
         <!-- orにすることでどちらかで検索することができる -->
-          <%= f.text_field :body_or_user_name_cont  %>
-          <% f.label :user_age_eq %>年齢検索:
+          <%= f.text_field :body_or_user_name_cont, placeholder: "キーワード検索" %>
+          <% f.label :user_age_eq %>
         <!-- eqがないとransackの機能として使用できない -->
           <%= f.select :user_age_eq, [["20代未満", "20代未満"], ["20代前半", "20代前半"], ["20代後半"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"], ["60代", "60代"]], include_blank: "選択してください" %>
-          <%= f.submit 'Search' %>
+          <%= f.submit 'Search', class: "btn btn-success" %>
         </div>
       <% end %>
     <% end %>
