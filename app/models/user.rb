@@ -19,6 +19,12 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
+  validates :name, length: {maximum: 10, minumum: 2}
+  validates :introduction, length: {maximum: 50}
+  validates :postal_code, presence: true
+  validates :prefecyure_code, presence: true
+  validates :city, presence: true
+  validates :street, presence: true
 
   def follow(user_id)
   	follower.create(followed_id: user_id)

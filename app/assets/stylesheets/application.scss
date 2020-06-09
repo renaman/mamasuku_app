@@ -33,6 +33,8 @@ ul {
  }
  .nav {
  	text-align: center;
+ 	font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
+ 	font-size: 20px;
  }
  li {
  	display: inline-block;
@@ -72,3 +74,23 @@ ul {
  .field {
  margin-bottom: 5px;
  }
+ .follow-table {
+ 	width: 80%;
+ 	margin: 0 auto;
+ }
+ .follow-headline {
+ 	margin-left: 150px;
+ }
+ select#q_user_age_eq {
+ 	width: 200px;
+ 	height: 34px;
+ 	margin-right: 10px;
+ }
+ input#q_body_or_user_name_cont {
+    height: 32px;
+    width: 200px;
+    margin-right: 10px;
+}
+.control-group {
+	margin-top: 20px;
+}

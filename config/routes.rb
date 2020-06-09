@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   #admin
   namespace :admin do
   	get 'top' => 'homes#top'
-  	resources :users, only: [:index, :show, :edit, :update]
-  	resources :diaries, only: [:index, :show, :destroy]
+  	resources :users, only: [:index, :show, :edit, :update] do
+  	   resources :diaries, only: [:index, :show, :destroy]
+    end
   end
 
   #user

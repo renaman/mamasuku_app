@@ -11,9 +11,11 @@
 	<tr>
 		<% if current_user != user %>
 			<th>
-				<%= link_to 'Chat Room', chat_path(user.id) %>
+				Chat Room
 			</th>
-			<th></th>
+			<th>
+				<%= link_to 'Link', chat_path(user) %>
+			</th>
 		<% end %>
 	</tr>
 	<tr>
@@ -21,9 +23,11 @@
 		<th><%= user.introduction %></th>
 	</tr>
 	<tr>
-		<th>Follow</th>
-		<th>
-			<%= render 'user/diaries/follow', user: @user %>
+		<th>Notice</th>
+		<th><%= link_to '通知', notifications_path %>
+			 <% if unchecked_notifications.any? %>
+    			<i class="fa fa-circle notification-circle" ></i>
+  			<% end %>
 		</th>
 	</tr>
 	<tr>
@@ -34,9 +38,6 @@
 		<th>followers</th>
 		<th><%= link_to user.followed.count, user_followers_path(user) %></th>
 	</tr>
-	<tr>
-		<th>Notice</th>
-		<th><%= link_to 'notice' %></th>
-	</tr>
 </table>
+<%= render 'user/diaries/follow', user: @user %>
 <%= link_to '',edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-cog edit_user_#{user.id}" %>

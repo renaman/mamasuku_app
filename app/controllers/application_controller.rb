@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	#application.html.erbで@searchを記述したので全てのページに記載が必要であった。application.controllerに記述すると全てのページで@searchが使えるようになる。
 	def set_ransack_diary
 		@search = Diary.search(params[:q])
 	end

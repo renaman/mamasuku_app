@@ -1,9 +1,8 @@
-<table class="table">
+<table class="table follow-table">
 	<thead>
 		<tr>
 			<th>Image</th>
 			<th>Name</th>
-			<th></th>
 			<th></th>
 			<th></th>
 			<th></th>
@@ -12,22 +11,23 @@
 	<tbody>
 		<% users.each do |user| %>
 			<tr>
-				<td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "human.jpg", size: "50x50") %>
+				<td><%= attachment_image_tag user, :profile_image, format: 'jpg', size: "50x50", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
 				</td>
-				<td><%= user.name %></td>
+				<td>
+					<%= link_to user.name, user_path(user) %></td>
 				<td>フォロー数：<%= user.follower.count %></td>
 			<td>フォロワー数：<%= user.followed.count %></td>
 			<td>
           <% if current_user != user %>
             <% if current_user.following?(user) %>
-              <%= link_to 'フォロー外す', user_relationships_path(user), method: :delete %>
+              <%= link_to 'Unfollow', user_relationships_path(user), method: :delete %>
             <% else %>
-              <%= link_to 'フォローする', user_relationships_path(user), method: :POST %>
+              <%= link_to 'Follow me', user_relationships_path(user), method: :POST %>
             <% end %>
           <% end %>
         </td>
-			<td><%= link_to "Show", user_path(user) %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+<%= paginate users %>

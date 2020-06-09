@@ -1,12 +1,20 @@
-<%= form_for(@user, url: user_path(@user)) do |f| %>
-	<%= f.label :name %><br />
-	<%= f.text_field :name %><br /><%= f.label :image %>
-	<%= f.attachment_field :profile_image %><br>
-	<%= f.label :remove_profile_image %>
-	<%= f.check_box :remove_profile_image %><br />
-	<%= f.label :age %><br />
-	<%= f.select :age, [["20代未満", "20代未満"], ["20代前半", "20代前半"], ["20代後半"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"], ["60代", "60代"]], include_blank: "選択してください" %><br />
-	<%= f.label :introduction %><br />
-	<%= f.text_area :introduction %>
-	<%= f.submit 'Update' %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<h2>Edit User</h2>
+			<%= form_for(@user, url: user_path(@user)) do |f| %>
+				<%= f.label :name %><br>
+				<%= f.text_field :name, size: "30x5", placeholder: "名前" %><br />
+				<%= f.label :profile_image %>
+				<%= f.attachment_field :profile_image %>
+				<%= f.label :remove_profile_image %>
+				<%= f.check_box :remove_profile_image %><br />
+				<%= f.label :age %>
+				<%= f.select :age, [["20代未満", "20代未満"], ["20代前半", "20代前半"], ["20代後半"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"], ["60代", "60代"]], include_blank: "選択してください" %><br />
+				<%= f.label :introduction %><br>
+				<%= f.text_area :introduction, size: "50x10", placeholder: "50文字以内" %><br>
+				<%= f.submit 'Update', class: "btn btn-default" %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,13 +1,19 @@
-<h2>Detail Diary</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-3">
+			<h2>Detail Diary</h2>
 
-<%= form_for(@diary, url: diary_path(@diary), method: :patch) do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %><br>
-	<%= f.label :image %>
-	<%= f.attachment_field :image %><br>
-	<%= f.label :remove_image %>
-	<%= f.check_box :remove_image %><br />
-	<%= f.label :body %>
-	<%= f.text_area :body %>
-	<%= f.submit 'Update Diary' %>
-<% end %>
+			<%= form_for(@diary, url: diary_path(@diary), method: :patch) do |f| %>
+				<%= f.label :title %>
+				<%= f.text_field :title, size: "50x5", placeholder: "20文字以内" %><br>
+				<%= f.label :image %>
+				<%= f.attachment_field :image %>
+				<%= f.label :remove_image %>
+				<%= f.check_box :remove_image %><br />
+				<%= f.label :body %><br>
+				<%= f.text_area :body, placeholder: '20文字以上500文字以内', size: "80x20" %><br>
+				<%= f.submit 'Update Diary', class: "btn btn-default glyphicon glyphicon-cog" %>
+			<% end %>
+		</div>
+	</div>
+</div>

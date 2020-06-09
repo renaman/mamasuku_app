@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
   </head>
 
   <body>
@@ -51,7 +51,7 @@
           <% f.label :user_age_eq %>
         <!-- eqがないとransackの機能として使用できない -->
           <%= f.select :user_age_eq, [["20代未満", "20代未満"], ["20代前半", "20代前半"], ["20代後半"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"], ["60代", "60代"]], include_blank: "選択してください" %>
-          <%= f.submit 'Search', class: "btn btn-success" %>
+          <%= f.submit 'Search', class: "btn btn-default" %>
         </div>
       <% end %>
     <% end %>

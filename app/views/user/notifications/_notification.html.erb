@@ -1,3 +1,1 @@
-<% notifications.each do |notifications| %>
-	<%= notifications.visited.name %>
-<% end %>
+<%= link_to notification.visited.name, chat_path(notification) %>
