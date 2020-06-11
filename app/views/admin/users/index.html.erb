@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container main-container">
 	<div class="row">
 		<div class="col-md-12">
+			<h2>User Index</h2>
 			<table class="table">
 				<thead>
 					<th>ID</th>
@@ -25,7 +26,7 @@
 									無効
 								<%  end %>
 							</td>
-							<td><%= link_to 'Diary', admin_user_diaries_path(user_id: user.id) %></td>
+							<td><%= link_to 'User Diary', admin_user_diaries_path(user_id: user.id) %></td>
 						</tr>
 					</tbody>
 				<% end %>

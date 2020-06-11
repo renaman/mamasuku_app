@@ -1,27 +1,27 @@
-<div class="container">
+<div class="container main-container">
 	<div class="row">
-		<div class="col-md-12">
-			Edit User Page
+		<div class="col-md-8 col-md-offset-4">
+			<h2>Edit User Page</h2>
 			<%= form_for(@user, url: admin_user_path(@user)) do |f| %>
 				<%= f.label :name %><br />
-				<%= f.text_field :name %>
+				<%= f.text_field :name, size: "30x5", placeholder: "名前" %><br>
 				<%= f.label :email %><br />
-				<%= f.text_field :email %>
+				<%= f.text_field :email, size: "30x5", placeholder: "メールアドレス" %><br>
 				<%= f.label :postal_code %><br />
-				<%= f.text_field :postal_code %>
+				<%= f.text_field :postal_code, size: "30x5", placeholder: "郵便番号" %><br>
 				<%= f.label :prefecture_code %><br />
-				<%= f.text_field :prefecture_code %>
+				<%= f.text_field :prefecture_code, size: "30x5", placeholder: "都道府県" %><br>
 				<%= f.label :city %><br />
-				<%= f.text_field :city %>
+				<%= f.text_field :city, size: "50x5", placeholder: "市町村" %><br>
 				<%= f.label :street %><br />
-				<%= f.text_field :street %>
+				<%= f.text_field :street, size: "50x5", placeholder: "番地" %><br><br>
 				<label>
 					<%= f.radio_button :is_active, "true" %>有効
 				</label>
 				<lavel>
 					<%= f.radio_button :is_active, "false" %>退会済み
-				</lavel>
-				<%= f.submit 'Up Date' %>
+				</lavel><br>
+				<%= f.submit 'Up Date', class: "btn btn-default" %>
 			<% end %>
 		</div>
 	</div>

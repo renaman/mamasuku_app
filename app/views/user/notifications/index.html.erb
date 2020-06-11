@@ -1,13 +1,17 @@
-<div>
-	<div class="sub-title">通知</div>
-	<% if @notifications.exists? %>
-		<div class="users-index">
-			<%#= render 'notification',collection:@notifications%>
-			<%#= render 'notification',notification:@notification %>
-			<%= render @notifications %>
-			<%= paginate @notifications %>
+<div class="container main-container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="sub-title">通知</h2>
+				<% if @notifications.exists? %>
+					<div class="users-index">
+					<%#= render 'notification',collection:@notifications%>
+					<%#= render 'notification',notification:@notification %>
+						<%= render @notifications %>
+						<%= paginate @notifications %>
+					</div>
+				<% else %>
+					<p>通知はありません</p>
+				<% end %>
 		</div>
-	<% else %>
-		<p>通知はありません</p>
-	<% end %>
+	</div>
 </div>

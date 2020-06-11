@@ -4,8 +4,8 @@ class Diary < ApplicationRecord
 	has_many :diary_comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
 
-	validates :title, presence: true, legth: {maximum: 20}
-	validates :body, presence: true, legth: {maximum: 500}
+	#validates :title, presence: true, length: {maximum: 20}
+	#validates :body, presence: true, length: {maximum: 500}
 
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?

@@ -16,6 +16,7 @@
 				<%= @diary.user.name %>
 				<% end %>
 				<br>
+				<!-- 投稿した本人であれば表示する -->
 				<% unless current_user != @diary.user %>
 					<%= link_to edit_diary_path(@diary) do %>
 						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
@@ -24,17 +25,20 @@
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span><br>
 					<% end %>
 				<% end %>
+				<!-- いいね機能非同期通信 -->
 				<span id="diary_<%= @diary.id %>">
 					<%= render 'favorite', diary: @diary, favorites: @diary.favorites %>
 				</span><br>
+				<!-- コメント投稿・削除非同期通信 -->
 				<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
 				<%= @diary.diary_comments.count %>
 				<div class="show-tb comment_<%= @diary.id %>">
 					<%= render 'comment', diary_comments: @diary.diary_comments %>
 				</div>
+				<!-- コメント投稿フォーム -->
 				<%= form_with model:[@diary, @diary_comment], method: :post, data: {remote: true} do |f| %>
 					<%= f.text_area :comment, placeholder: "コメントをここに", size: "120x5" %>
-					<%= f.submit "Comment Up" %>
+					<%= f.submit "Comment Up", class: "btn btn-default" %>
 				<% end %>
 			</div>
 		</div>

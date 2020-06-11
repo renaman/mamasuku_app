@@ -16,7 +16,7 @@ class Admin::UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		if @user.is_active == "true"
-			@user.update(is_actibve: false)
+			@user.update(is_active: false)
 		else
 			@user.update(is_active: true)
 		end

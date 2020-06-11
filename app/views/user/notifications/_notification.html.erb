@@ -1,1 +1,13 @@
-<%= link_to notification.visited.name, chat_path(notification) %>
+<table class="table">
+	<tbody>
+		<tr>
+			<td><%= notification.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+			<td>
+				<%= link_to notification.visiter.name, chat_path(notification.chat_id) %>さんからメッセージが届いています。
+			</td>
+			<td>
+				<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+			</td>
+		</tr>
+	</tbody>
+</table>

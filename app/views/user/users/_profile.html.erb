@@ -1,5 +1,6 @@
 <table class="table">
-	<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "130x110", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+	<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "130x110", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %><br>
+	<%= render 'user/diaries/follow', user: @user %>
 	<tr>
 		<th>Name</th>
 		<th><%= user.name %></th>
@@ -14,21 +15,25 @@
 				Chat Room
 			</th>
 			<th>
-				<%= link_to 'Link', chat_path(user) %>
+				<%= link_to chat_path(user) do %>
+					<span class="glyphicon glyphicon-envelope email-link" aria-hidden="true"></span>
+				<% end %>
 			</th>
 		<% end %>
 	</tr>
 	<tr>
-		<th>Introduction</th>
-		<th><%= user.introduction %></th>
-	</tr>
-	<tr>
 		<th>Notice</th>
-		<th><%= link_to '通知', notifications_path %>
+		<th><%= link_to notifications_path do %>
+			<span class="glyphicon glyphicon-bell email-link" aria-hidden="true"></span>
+			<% end %>
 			 <% if unchecked_notifications.any? %>
     			<i class="fa fa-circle notification-circle" ></i>
   			<% end %>
 		</th>
+	</tr>
+	<tr>
+		<th>Introduction</th>
+		<th><%= user.introduction %></th>
 	</tr>
 	<tr>
 		<th>follows</th>
@@ -39,5 +44,5 @@
 		<th><%= link_to user.followed.count, user_followers_path(user) %></th>
 	</tr>
 </table>
-<%= render 'user/diaries/follow', user: @user %>
+
 <%= link_to '',edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-cog edit_user_#{user.id}" %>
