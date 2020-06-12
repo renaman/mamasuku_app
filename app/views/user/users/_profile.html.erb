@@ -15,8 +15,17 @@
 				Chat Room
 			</th>
 			<th>
-				<%= link_to chat_path(user) do %>
-					<span class="glyphicon glyphicon-envelope email-link" aria-hidden="true"></span>
+				<% if @user.id != current_user.id %>
+  					<% if @is_room == true %>
+    					<p><a href="/rooms/<%= @room_id %>">チャットへ</a>
+  					<% else %>
+    					<%= form_for @room do |f| %>
+      						<%= fields_for @user_room do |e| %>
+        						<%= e.hidden_field :user_id, :value=> @user.id %>
+      						<% end %>
+      						<%= f.submit "チャットを始める" %>
+    					<% end %>
+  					<% end %>
 				<% end %>
 			</th>
 		<% end %>

@@ -34,8 +34,7 @@ Rails.application.routes.draw do
   	end
   	get 'leave' => 'users#leave'
   	get 'hide' => 'users#hide'
-    get 'room/:id' => 'rooms#show'
-  	get 'chat/:id' => 'chats#show', as: 'chat'
+    resources :rooms, only: [:create, :show]
   	resources :chats, only: [:create]
   	resources :contacts, only: [:index, :create]
   	get 'contacts/thanxs' => 'contacts#thanxs'
