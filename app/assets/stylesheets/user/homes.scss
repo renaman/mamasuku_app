@@ -1,0 +1,32 @@
+// Place all the styles related to the user/homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-icon {
+	font-size: 150px;
+	color: #F19C99;
+}
+.content-box {
+	float: left;
+	width: 30%;
+	border: 2px solid #F19C99;
+	border-radius: 20px;
+	margin-top: 100px;
+	margin-right: 5%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+}
+.content-box:last-child {
+	margin-right: 0;
+}
+.top-text, .text-content {
+	color: #331a00;
+}
+.top-text {
+	font-size: 24px;
+	border-bottom: 2px solid #F19C99;
+}
+.content-box {
+	letter-spacing: 4px;
+}

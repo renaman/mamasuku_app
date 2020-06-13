@@ -1,0 +1,33 @@
+<table class="table follow-table">
+	<thead>
+		<tr>
+			<th>Image</th>
+			<th>Name</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% users.each do |user| %>
+			<tr>
+				<td><%= attachment_image_tag user, :profile_image, format: 'jpg', size: "50x50", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+				</td>
+				<td>
+					<%= link_to user.name, user_path(user) %></td>
+				<td>フォロー数：<%= user.follower.count %></td>
+			<td>フォロワー数：<%= user.followed.count %></td>
+			<td>
+          <% if current_user != user %>
+            <% if current_user.following?(user) %>
+              <%= link_to 'Unfollow', user_relationships_path(user), method: :delete %>
+            <% else %>
+              <%= link_to 'Follow me', user_relationships_path(user), method: :POST %>
+            <% end %>
+          <% end %>
+        </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate users %>

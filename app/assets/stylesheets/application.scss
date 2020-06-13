@@ -1,0 +1,95 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+header {
+	height: 250px;
+	background-color: #F8E3F0;
+}
+ul {
+	list-style: none;
+}
+ .nav-image {
+ 	text-align: center;
+ }
+ .nav {
+ 	text-align: center;
+ 	font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
+ 	font-size: 20px;
+ }
+ li {
+ 	display: inline-block;
+ 	margin-right: 80px;
+ 	padding: 10px;
+ }
+ li:last-child {
+ 	margin-right: 0;
+ }
+ a:hover {
+ 	text-decoration: none;
+ }
+ a {
+   color: #331a00;
+ }
+ footer {
+ 	height: 200px;
+ 	background-color: #F8E3F0;
+ }
+ .main-container {
+ 	margin-top: 30px;
+ }
+ table, tr, thead, th {
+ 	border-top: 2px solid #F8E3F0;
+ }
+ thead {
+ 	background-color: #F8E3F0;
+ }
+ .col-md-4 {
+ 	border: 2px solid #F8E3F0;
+ 	border-radius:25px;
+ 	padding-top: 20px;
+ 	padding-bottom: 20px;
+ 	text-align: center;
+ }
+ .field {
+ margin-bottom: 5px;
+ }
+ .follow-table {
+ 	width: 80%;
+ 	margin: 0 auto;
+ }
+ .follow-headline {
+ 	margin-left: 150px;
+ }
+ select#q_user_age_eq {
+ 	width: 200px;
+ 	height: 34px;
+ 	margin-right: 10px;
+ }
+ input#q_body_or_user_name_cont {
+    height: 32px;
+    width: 200px;
+    margin-right: 10px;
+}
+.control-group {
+	margin-top: 20px;
+}

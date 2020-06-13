@@ -1,0 +1,18 @@
+// Place all the styles related to the admin/users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a.btn.btn-default.edit-btn {
+    padding: 5px 100px 5px;
+}
+.left-td {
+	font-weight: bold;
+	font-size: 16px;
+	border-left: 1px solid #F8E3F0;
+	border-right: 1px solid #F8E3F0;
+	text-align: center;
+	background-color: #FEEEED;
+}
+.right-td {
+	border-right: 1px solid #F8E3F0;
+}
