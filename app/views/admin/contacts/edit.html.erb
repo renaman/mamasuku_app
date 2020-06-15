@@ -1,0 +1,14 @@
+<h2>お問い合わせ内容</h2>
+    <%= form_for @contact, url: admin_contact_path do |f| %>
+        <h3>顧客名</h3>
+        <%= @contact.name %>さん
+        <h3>問い合わせ日</h3>
+        <%= @contact.created_at.strftime("%Y年%m月%d日 ") %>
+        <h3>メールアドレス</h3>
+        <%= @contact.email %>
+        <h3>問い合わせ内容</h3>
+        <%= @contact.message %>
+        <h3>返信</h3>
+        <%= f.text_area :reply, placeholder: "返信内容" %><br>
+        <%= f.submit "送信", class: "btn btn-default" %>
+    <% end %>

@@ -1,0 +1,16 @@
+<% if @contact.errors.any? %>
+	<%= @contact.errors.count %>
+	<% @contact.errors.full_messages.each do |message| %>
+		<%= message %>
+	<% end %>
+<% end %>
+<h2 class="contact-title">お問い合わせフォーム</h2>
+<%= form_for @contact, url: contacts_path do |f| %>
+	<%= f.label :名前 %>
+	<%= f.text_field :name %>
+	<%= f.label :メールアドレス %>
+	<%= f.text_field :email %>
+	<%= f.label :メッセージ %>
+	<%= f.text_area :message %>
+	<%= f.submit 'Sent Mail', class: "btn btn-default" %>
+<% end %>

@@ -1,5 +1,6 @@
 class User::DiariesController < ApplicationController
 	before_action :authenticate_user!
+	before_action :screen_diary, only: [:update, :edit]
 
 	def new
 		@diary = Diary.new
@@ -50,6 +51,13 @@ class User::DiariesController < ApplicationController
 
 	def diary_params
 		params.require(:diary).permit(:title, :body, :image, :remove_image)
+	end
+
+	def screen_diary
+		diary = Diary.find(params[:id])
+		if diary.user != current_user
+			redirect_to diaries_path
+		end
 	end
 
 

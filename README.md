@@ -20,7 +20,11 @@
 悩みを聞いて欲しい時等
 
 
-## 設計書
+### ER図
+https://drive.google.com/file/d/1hqYxicHnq6i67_RGcrHrJczFRiBFOmsV/view?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1gWFxOdznKmt4-osYv9shrGQ8AmwcOvvrOE1bGR7YZ7U/edit#gid=694335640
+
+### アプリケーション詳細設計
+https://docs.google.com/spreadsheets/d/1LYDIwvtHmyCeTJClZ56aCVXvqdkqAxU-MZ178xdbUC8/edit?usp=sharing

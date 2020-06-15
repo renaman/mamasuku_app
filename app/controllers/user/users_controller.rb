@@ -1,4 +1,6 @@
 class User::UsersController < ApplicationController
+	before_action :authenticate_user!
+	before_action :screen_user, only: [:update, :edit]
 
 	def show
 		@user = User.find(params[:id])
@@ -47,6 +49,12 @@ class User::UsersController < ApplicationController
 	private
 	def user_params
 		params.require(:user).permit(:name, :age, :profile_image, :introduction, :remove_profile_image)
+	end
+
+	def screen_user
+		if params[:id].to_i != current_user.id
+			redirect_to user_path(current_user)
+		end
 	end
 
 end

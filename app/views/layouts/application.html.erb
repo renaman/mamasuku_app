@@ -21,6 +21,7 @@
           <% if request.url.include?('admin') %>
             <% if admin_signed_in? %>
               <li><%= link_to 'User Page', admin_users_path %></li>
+              <li><%= link_to 'Contact', admin_contacts_path %></li>
               <li><%= link_to 'Log Out', destroy_admin_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to 'User Page', root_path %></li>
@@ -59,6 +60,7 @@
     <%= yield %>
     <footer>
       <% if user_signed_in? %>
+        <%= link_to 'Contact', new_contact_path %><br>
         <%= link_to 'Withdrawal', leave_path %>
       <% end %>
     </footer>
