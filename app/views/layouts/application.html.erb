@@ -20,23 +20,25 @@
         <ul class="nav-list">
           <% if request.url.include?('admin') %>
             <% if admin_signed_in? %>
-              <li><%= link_to 'User Page', admin_users_path %></li>
-              <li><%= link_to 'Contact', admin_contacts_path %></li>
-              <li><%= link_to 'Log Out', destroy_admin_session_path, method: :delete %></li>
+              <li><%= link_to 'Top', admin_top_path, class: "nav-link" %></li>
+              <li><%= link_to 'User Page', admin_users_path, class: "nav-link" %></li>
+              <li><%= link_to 'Contact', admin_contacts_path, class: "nav-link" %></li>
+              <li><%= link_to 'Log Out', destroy_admin_session_path, method: :delete, class: "nav-link" %></li>
             <% else %>
-              <li><%= link_to 'User Page', root_path %></li>
-              <li><%= link_to 'Sign In', new_admin_session_path %></li>
+              <li><%= link_to 'About', homes_about_path, class: "nav-link" %></li>
+              <li><%= link_to 'User Page', root_path, class: "nav-link" %></li>
+              <li><%= link_to 'Log In', new_admin_session_path, class: "nav-link" %></li>
             <% end %>
           <% elsif user_signed_in? %>
-              <li><%= link_to 'Diary', diaries_path, class:"list-btn" %></li>
-              <li><%= link_to 'New', new_diary_path %></li>
-              <li><%= link_to 'My Page', user_path(current_user) %></li>
-            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to 'Diary', diaries_path, class: "nav-link" %></li>
+              <li><%= link_to 'New', new_diary_path, class: "nav-link" %></li>
+              <li><%= link_to 'My Page', user_path(current_user), class: "nav-link" %></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
           <% else %>
-            <li><%= link_to 'Top', root_path %></li>
-            <li><%= link_to 'About', homes_about_path %></li>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to 'Log In', new_user_session_path %></li>
+            <li><%= link_to 'Top', root_path, class: "nav-link" %></li>
+            <li><%= link_to 'About', homes_about_path, class: "nav-link" %></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %></li>
+            <li><%= link_to 'Log In', new_user_session_path, class: "nav-link" %></li>
           <% end %>
         </ul>
       </nav>
@@ -57,11 +59,16 @@
         </div>
       <% end %>
     <% end %>
+    <p id="notice"><%= notice %></p>
+    <div id="wrapper">
+    <main>
     <%= yield %>
+    </main>
+    </div>
     <footer>
       <% if user_signed_in? %>
-        <%= link_to 'Contact', new_contact_path %><br>
-        <%= link_to 'Withdrawal', leave_path %>
+        <%= link_to 'Contact', new_contact_path, class: "footer-link" %><br>
+        <%= link_to 'Withdrawal', leave_path, class: "footer-link" %>
       <% end %>
     </footer>
   </body>

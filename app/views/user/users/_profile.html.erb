@@ -1,29 +1,30 @@
-<table class="table">
+<table class="table profile-table">
 	<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "130x110", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %><br>
 	<%= render 'user/diaries/follow', user: @user %>
+	
 	<tr>
-		<th>Name</th>
-		<th><%= user.name %></th>
+		<th class="left">Name</th>
+		<th class="right"><%= user.name %></th>
 	</tr>
 	<tr>
 		<th>Age</th>
-		<th><%= user.age %></th>
+		<th class="right"><%= user.age %></th>
 	</tr>
 	<tr>
 		<% if current_user != user %>
 			<th>
 				Chat Room
 			</th>
-			<th>
+			<th class="right">
 				<% if @user.id != current_user.id %>
   					<% if @is_room == true %>
-    					<p><a href="/rooms/<%= @room_id %>">チャットへ</a>
+    					<a class="btn btn-default chat-btn" href="/rooms/<%= @room_id %>">チャットへ</a>
   					<% else %>
     					<%= form_for @room do |f| %>
       						<%= fields_for @user_room do |e| %>
         						<%= e.hidden_field :user_id, :value=> @user.id %>
       						<% end %>
-      						<%= f.submit "チャットを始める" %>
+      						<%= f.submit "チャットを始める", class: "btn btn-default chat-start" %>
     					<% end %>
   					<% end %>
 				<% end %>
@@ -32,8 +33,8 @@
 	</tr>
 	<tr>
 		<th>Notice</th>
-		<th><%= link_to notifications_path do %>
-			<span class="glyphicon glyphicon-bell email-link" aria-hidden="true"></span>
+		<th class="right"><%= link_to notifications_path, class: "btn-link" do %>
+			<div class="glyphicon glyphicon-bell email-link" aria-hidden="true"></div>
 			<% end %>
 			 <% if unchecked_notifications.any? %>
     			<i class="fa fa-circle notification-circle" ></i>
@@ -46,12 +47,15 @@
 	</tr>
 	<tr>
 		<th>follows</th>
-		<th><%= link_to user.follower.count, user_follows_path(user) %></th>
+		<th class="right"><%= link_to user.follower.count, user_follows_path(user), class: "btn-link" %></th>
 	</tr>
 	<tr>
 		<th>followers</th>
-		<th><%= link_to user.followed.count, user_followers_path(user) %></th>
+		<th class="right"><%= link_to user.followed.count, user_followers_path(user), class: "btn-link" %></th>
 	</tr>
+	<tr>
 </table>
+<div class="row">
+		<%= link_to '',edit_user_path(user), class: "btn btn-default glyphicon glyphicon-cog edit_user_#{user.id}" %>
+</div>
 
-<%= link_to '',edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-cog edit_user_#{user.id}" %>

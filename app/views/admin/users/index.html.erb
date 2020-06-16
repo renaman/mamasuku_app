@@ -14,7 +14,7 @@
 					<tbody>
 						<tr>
 							<td><%= user.id %></td>
-							<td><%= link_to admin_user_path(user) do %>
+							<td><%= link_to admin_user_path(user), class: "btn-link" do %>
 									<%= user.name %>
 								<% end %>
 							</td>
@@ -26,7 +26,7 @@
 									無効
 								<%  end %>
 							</td>
-							<td><%= link_to 'User Diary', admin_user_diaries_path(user_id: user.id) %></td>
+							<td><%= link_to 'User Diary', admin_user_diaries_path(user_id: user.id), class: "btn-link" %></td>
 						</tr>
 					</tbody>
 				<% end %>

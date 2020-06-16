@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
   has_many :contacts
 
-  validates :name, length: {maximum: 10, minumum: 2}
+  validates :name, presence: true, length: {maximum: 10, minumum: 2}
   validates :introduction, length: {maximum: 50}
   validates :postal_code, presence: true
   validates :prefecture_code, presence: true

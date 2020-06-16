@@ -33,7 +33,7 @@ ul {
  }
  .nav {
  	text-align: center;
- 	font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
+ 	font-family: Noto, Hiragino Sans,Helvetica,Arial,sans-serif;
  	font-size: 20px;
  }
  li {
@@ -44,12 +44,16 @@ ul {
  li:last-child {
  	margin-right: 0;
  }
- a:hover {
+ .name-link, .title-link {
+ 	color: black;
+ }
+ .name-link:hover, .title-link:hover {
  	text-decoration: none;
+ 	display: inline-block;
+ 	background-color: #d8bfd8;
+ 	color: white;
  }
- a {
-   color: #331a00;
- }
+
  footer {
  	height: 200px;
  	background-color: #F8E3F0;
@@ -71,7 +75,7 @@ ul {
  	text-align: center;
  }
  .field {
- margin-bottom: 5px;
+ 	margin-bottom: 5px;
  }
  .follow-table {
  	width: 80%;
@@ -92,4 +96,67 @@ ul {
 }
 .control-group {
 	margin-top: 20px;
+}
+#notice {
+	margin-top: 20px;
+	margin-left: 200px;
+	color: #9999FF;
+}
+.left {
+	width: 40%;
+}
+.right {
+	width: 60%;
+	text-align: center;
+}
+div.glyphicon.glyphicon-bell.email-link {
+	position: relative;
+	color: #ffd700;
+}
+i.fa.fa-circle.notification-circle {
+	position: absolute;
+	font-size: 3px;
+	top: 232px;
+	right: 112px;
+}
+a.col-xs-12.btn.btn-default.glyphicon.glyphicon-cog {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+a.btn.btn-default.glyphicon.glyphicon-cog {
+    padding: 5px 160px 5px;
+}
+img.attachment.user.profile_image.img-circle {
+    margin-bottom: 10px;
+}
+.nav-link, .footer-link {
+	color: #a0522d;
+}
+.nav-link:hover, .footer-link:hover {
+	text-decoration: none;
+	color: white;
+}
+.btn-link {
+	color: black;
+}
+.btn-link:hover {
+	color: white;
+	background-color: #d8bfd8;
+	text-decoration: none;
+}
+.footer-link {
+	font-size: 20px;
+	margin-left: 50px;
+	display: inline-block;
+	margin-top: 20px;
+}
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 130vh;
+}
+
+footer {
+  margin-top: auto;
 }

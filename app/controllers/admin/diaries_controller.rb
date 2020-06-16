@@ -12,7 +12,7 @@ class Admin::DiariesController < ApplicationController
 	def destroy
 		@diary = Diary.find(params[:id])
 		@diary.destroy
-		redirect_to admin_user_diaries_path
+		redirect_to admin_user_diaries_path, notice: "successfully deleted diary!"
 	end
 
 	def diary_params

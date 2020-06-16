@@ -6,7 +6,6 @@ class User::DiaryCommentsController < ApplicationController
 		@diary_comment = @diary.diary_comments.new(diary_comment_params)
 		@diary_comment.user_id = current_user.id
 		if @diary_comment.save
-			flash[:notice] = "Comment was successfully created."
 		else
 			@diary_comments = DiaryComment.where(diary_id: @diary.id)
 			render '/diaries/show'

@@ -4,6 +4,12 @@
 		<h2>New Diary</h2>
 
 			<%= form_for(@diary, url: diaries_path, method: :post) do |f| %>
+				<% if @diary.errors.any? %>
+					<%= @diary.errors.count %>
+						<% @diary.errors.full_messages.each do |message| %>
+						<%= message %>
+					<% end %>
+				<% end %><br>
 				<%= f.label :title %><br>
 				<%= f.text_field :title, placeholder: '20文字以内', size: "50x5" %><br>
 				<%= f.label :image %>

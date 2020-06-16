@@ -2,15 +2,15 @@
 <% diary_comments.each do |diary_comment| %>
 	<tr>
 		<td>
-			<%= link_to user_path(diary_comment.user) do %>
 				<%= attachment_image_tag diary_comment.user, :profile_image, size: "30x30", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %><br>
+				<%= link_to user_path(diary_comment.user), class: "btn-link" do %>
 				<%= diary_comment.user.name %>
 			<% end %>
 		</td>
 		<td><%= diary_comment.comment %></td>
 		<td>
 			<% unless current_user != diary_comment.user %>
-				<%= link_to diary_diary_comment_path(diary_id: @diary.id, id: diary_comment.id), method: :delete, remote: true do %>
+				<%= link_to diary_diary_comment_path(diary_id: @diary.id, id: diary_comment.id), class: "btn-link", method: :delete, remote: true do %>
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				<% end %>
 			<% end %>

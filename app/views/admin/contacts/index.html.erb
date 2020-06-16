@@ -1,5 +1,8 @@
-<h2>問合せフォーム</h2>
-<table>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+<h2>Contact Index</h2>
+<table class="table">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -14,8 +17,11 @@
 				<td><%= contact.name %></td>
 				<td><%= contact.email %></td>
 				<td><%= contact.created_at.strftime("%Y%m月%d日 ") %></td>
-				<td><%= link_to "返信", edit_admin_contact_path(contact) %></td>
+				<td><%= link_to "返信", edit_admin_contact_path(contact), class: "btn btn-default contact-btn" %></td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
+</div>
+</div>

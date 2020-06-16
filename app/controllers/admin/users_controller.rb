@@ -20,8 +20,11 @@ class Admin::UsersController < ApplicationController
 		else
 			@user.update(is_active: true)
 		end
-		@user.update(user_params)
-		redirect_to admin_user_path(@user)
+		if @user.update(user_params)
+		   redirect_to admin_user_path(@user), notice: "successfully updated user!"
+		else
+			render :edit
+		end
 	end
 
 	private
