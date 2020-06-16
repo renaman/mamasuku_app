@@ -6,6 +6,7 @@
 	</p>
 <% else %>
 	<p style="text-align: left;">
+		<%= @chat.created_at.strftime('%m/%d') %>
 		<%= attachment_image_tag @chat.user, :profile_image, format: 'jpg', size: "25x25", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
 		<%= @chat.message %>
 	</p>

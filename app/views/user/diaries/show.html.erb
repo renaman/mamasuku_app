@@ -32,12 +32,14 @@
 				<!-- コメント投稿・削除非同期通信 -->
 				<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
 				<%= @diary.diary_comments.count %>
+
 				<div class="show-tb comment_<%= @diary.id %>">
 					<%= render 'comment', diary_comments: @diary.diary_comments %>
 				</div>
+				<%= paginate @diary_comments %>
 				<!-- コメント投稿フォーム -->
 				<%= form_with model:[@diary, @diary_comment], method: :post, data: {remote: true} do |f| %>
-					<%= f.text_area :comment, placeholder: "コメントをここに", size: "120x5" %>
+					<%= f.text_area :comment, placeholder: "コメントをここに", size: "110x5" %><br>
 					<%= f.submit "Comment Up", class: "btn btn-default" %>
 				<% end %>
 			</div>

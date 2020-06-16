@@ -25,7 +25,7 @@ class User::DiariesController < ApplicationController
 		@diary = Diary.find(params[:id])
 		@user = @diary.user
 		@diary_comment = DiaryComment.new
-		@diary_comments = @diary.diary_comments
+		@diary_comments = @diary.diary_comments.page(params[:page]).reverse_order.per(5)
 	end
 
 	def edit

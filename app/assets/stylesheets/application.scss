@@ -16,11 +16,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.clearfix::after {
-	content: "";
-	display: block;
-	clear: both;
-}
 header {
 	height: 250px;
 	background-color: #F8E3F0;
@@ -34,7 +29,8 @@ ul {
  .nav {
  	text-align: center;
  	font-family: Noto, Hiragino Sans,Helvetica,Arial,sans-serif;
- 	font-size: 20px;
+ 	font-size: 26px;
+ 	font-family: 'CabinSketch-Bold';
  }
  li {
  	display: inline-block;
@@ -57,6 +53,9 @@ ul {
  footer {
  	height: 200px;
  	background-color: #F8E3F0;
+ 	padding-top: 50px;
+ 	color: #a0522d;
+ 	font-size: 20px;
  }
  .main-container {
  	margin-top: 30px;
@@ -66,6 +65,7 @@ ul {
  }
  thead {
  	background-color: #F8E3F0;
+ 	font-size: 20px;
  }
  .col-md-4 {
  	border: 2px solid #F8E3F0;
@@ -114,10 +114,10 @@ div.glyphicon.glyphicon-bell.email-link {
 	color: #ffd700;
 }
 i.fa.fa-circle.notification-circle {
-	position: absolute;
 	font-size: 3px;
-	top: 232px;
-	right: 112px;
+	margin-left: -6px;
+	/*top: 232px;*/
+	/*right: 112px;*/
 }
 a.col-xs-12.btn.btn-default.glyphicon.glyphicon-cog {
     margin-bottom: 20px;
@@ -148,7 +148,7 @@ img.attachment.user.profile_image.img-circle {
 	font-size: 20px;
 	margin-left: 50px;
 	display: inline-block;
-	margin-top: 20px;
+	margin-bottom: 10px;
 }
 body,
 #wrapper {
@@ -156,7 +156,27 @@ body,
   flex-direction: column;
   min-height: 130vh;
 }
-
-footer {
-  margin-top: auto;
+.footer-content {
+	text-align: center;
+}
+a {
+	color: black;
+}
+a:hover {
+	color: white;
+	background-color: #d8bfd8;
+	text-decoration: none;
+}
+.slick_image {
+  margin: 0 auto;
+  border-radius: 50%;
+  height: 500px;
+  width :70%;
+}
+@font-face{
+   font-family: 'CabinSketch-Bold';
+   src: font-url('CabinSketch-Bold.ttf');
+ }
+h2, thead, footer {
+	font-family: 'CabinSketch-Bold';
 }
