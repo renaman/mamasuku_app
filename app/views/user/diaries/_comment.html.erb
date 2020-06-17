@@ -1,20 +1,23 @@
 <table class="table">
-<% diary_comments.each do |diary_comment| %>
-	<tr>
-		<td>
+	<% diary_comments.each do |diary_comment| %>
+		<tr>
+			<td>
 				<%= attachment_image_tag diary_comment.user, :profile_image, size: "30x30", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
 				<%= link_to user_path(diary_comment.user), class: "btn-link" do %>
-				<%= diary_comment.user.name %>
-			<% end %>
-		</td>
-		<td><%= diary_comment.comment %></td>
-		<td>
-			<% unless current_user != diary_comment.user %>
-				<%= link_to diary_diary_comment_path(diary_id: @diary.id, id: diary_comment.id), class: "btn-link", method: :delete, remote: true do %>
-						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					<%= diary_comment.user.name %>
 				<% end %>
-			<% end %>
-		</td>
-	</tr>
-<% end %>
+			</td>
+			<td class="comment-td"><%= diary_comment.comment %></td>
+			<td>
+				<% unless current_user != diary_comment.user %>
+					<%= link_to diary_diary_comment_path(diary_id: @diary.id, id: diary_comment.id), class: "btn-link", method: :delete do %>
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					<% end %>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
 </table>
+<div class="paging">
+	<%= paginate diary_comments %>
+</div>

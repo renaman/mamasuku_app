@@ -16,7 +16,6 @@
   <body>
     <header class="top-head">
       <div class="nav-image">
-        <!-- <img src="/assets/logo" style="width:200px; height:200px;"> -->
         <%= image_tag 'logo.jpg', style: "width:200px; height:200px;" %>
       </div>
       <nav class="nav">
@@ -47,7 +46,6 @@
       </nav>
     </header>
     <% if user_signed_in? %>
-    <!-- @searchで反映されなかったのでオプションでurlをつけた -->
       <%= search_form_for @search, url: search_path do |f| %>
         <div class="control-group text-center">
         <!-- @diaryをsearchコントローラで定義しているのでbodyはそのままのカラム名でok,nameはテーブルメイから記述 -->

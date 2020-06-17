@@ -7,12 +7,12 @@
 		<th class="right"><%= user.name %></th>
 	</tr>
 	<tr>
-		<th>Age</th>
+		<th class="left-th">Age</th>
 		<th class="right"><%= user.age %></th>
 	</tr>
 	<tr>
 		<% if current_user != user %>
-			<th>
+			<th class="left-th">
 				Chat Room
 			</th>
 			<th class="right">
@@ -32,7 +32,7 @@
 		<% end %>
 	</tr>
 	<tr>
-		<th>Notice</th>
+		<th class="left-th">Notice</th>
 		<th class="right"><%= link_to notifications_path, class: "btn-link" do %>
 			<div class="glyphicon glyphicon-bell email-link" aria-hidden="true"></div>
 			<% end %>
@@ -42,15 +42,15 @@
 		</th>
 	</tr>
 	<tr>
-		<th>Introduction</th>
+		<th class="left-th">Introduction</th>
 		<th><%= user.introduction %></th>
 	</tr>
 	<tr>
-		<th>follows</th>
+		<th class="left-th">follows</th>
 		<th class="right"><%= link_to user.follower.count, user_follows_path(user), class: "btn-link" %></th>
 	</tr>
 	<tr>
-		<th>followers</th>
+		<th class="left-th">followers</th>
 		<th class="right"><%= link_to user.followed.count, user_followers_path(user), class: "btn-link" %></th>
 	</tr>
 	<tr>

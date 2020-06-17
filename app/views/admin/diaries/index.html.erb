@@ -17,13 +17,15 @@
 							<td><%= diary.title %></td>
 							<td>
 								<%= link_to 'Show', admin_user_diary_path(diary.user, diary), class: "btn-link" %>
-								<% #ネストしていることもあり詳しい情報を欲しいと言われたので、diary.userとdiaryの二つを入れた。 %>
+								<%#= #ネストしていることもあり詳しい情報を欲しいと言われたので、diary.userとdiaryの二つを入れた。 %>
 							</td>
 						</tr>
 					</tbody>
 				<% end %>
 			</table>
-			<%= paginate @diaries %>
+			<div class="paging">
+				<%= paginate @diaries %>
+			</div>
 		</div>
 	</div>
 </div>

@@ -2,20 +2,20 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-3">
         <h2>Inquiry Reply</h2>
-    <%= form_for @contact, url: admin_contact_path do |f| %>
-        <h3>User Name</h3>
-        <%= @contact.name %>さん
-        <h3>Contact Day</h3>
-        <%= @contact.created_at.strftime("%Y年%m月%d日 ") %>
-        <h3>Email</h3>
-        <%= @contact.email %>
-        <h3>Message</h3>
-        <%= @contact.message %>
-        <h3>Reply</h3>
-        <% f.label :reply %>
-        <%= f.text_area :reply, placeholder: "返信内容をここに", placeholder: 'ここにメッセージを', size: "80x10" %><br>
-        <%= f.submit "Sent Mail", class: "btn btn-default" %>
-    <% end %>
-</div>
-</div>
+        <%= form_for @contact, url: admin_contact_path do |f| %>
+            <h3 class="contact-edit">User Name</h3>
+            <%= @contact.name %>さん
+            <h3 class="contact-edit">Contact Day</h3>
+            <%= @contact.created_at.strftime("%Y年%m月%d日 ") %>
+            <h3 class="contact-edit">Email</h3>
+            <%= @contact.email %>
+            <h3 class="contact-edit">Message</h3>
+            <%= @contact.message %>
+            <h3 class="contact-edit">Reply</h3>
+            <% f.label :reply %>
+            <%= f.text_area :reply, placeholder: "返信内容をここに", placeholder: 'ここにメッセージを', size: "80x10" %><br>
+            <%= f.submit "Sent Mail", class: "btn btn-default" %>
+        <% end %>
+    </div>
+  </div>
 </div>
