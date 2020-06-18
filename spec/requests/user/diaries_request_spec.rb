@@ -19,6 +19,9 @@ RSpec.describe "User::Diaries", type: :request do
 					expect(current_path).to eq('/diaries/new')
 				end
 			end
+			before do
+				visit new_diary_path
+			end
 			context '表示の確認' do
 				it 'New Diaryと表示される' do
 					expect(page).to have_content 'New Diary'
@@ -41,22 +44,32 @@ RSpec.describe "User::Diaries", type: :request do
 				it '投稿に失敗する' do
 					click_button 'Create Diary'
 					expect(page).to have_content 'error'
-					expect(current_path).to eq('diaries/new')
+					expect(current_path).to eq('/diaries')
 				end
 			end
 		end
 	end
 	describe '編集のテスト' do
+		let(:user) { create(:user) }
+		let!(:user2) { create(:user) }
+		let!(:diary) { create(:diary, user: user) }
+		let!(:diary2) { create(:diary, user: user2) }
+		before do
+			visit new_user_session_path
+			fill_in 'user[email]', with: user.email
+			fill_in 'user[password]', with: user.password
+			click_button 'Log In'
+		end
 		context '自分の投稿編集画面への遷移' do
 			it '遷移できる' do
 				visit edit_diary_path(diary)
-				expect(current_path).to eq('/diaries' + diary.id.to_s + '/edit')
+				expect(current_path).to eq('/diaries/' + diary.id.to_s + '/edit')
 			end
 		end
 		context '他人の投稿の編集画面への遷移' do
 			it '遷移できない' do
 				visit edit_diary_path(diary2)
-				expect(current_path).to eq('diaries' + diary.id.to_s)
+				expect(current_path).to eq('/diaries')
 			end
 		end
 		context '表示の確認' do
@@ -69,9 +82,6 @@ RSpec.describe "User::Diaries", type: :request do
 			it 'body編集フォームが表示される' do
 				expect(page).to have_field 'diary[body]', with: diary.body
 			end
-			it 'Backリンクが表示される' do
-				expect(page).to have_link 'Back', href: diaries_path
-			end
 		end
 		context 'フォームの確認' do
 			it '編集に成功する' do
@@ -82,7 +92,7 @@ RSpec.describe "User::Diaries", type: :request do
 			end
 			it '編集に失敗する' do
 				visit edit_diary_path(diary)
-				fill_in 'dialy[title]', with: ''
+				fill_in 'diary[title]', with: ''
 				click_button 'Update Diary'
 				expect(page).to have_content 'successfully'
 				expect(current_path).to eq('/diaries/' + diary.id.to_s)

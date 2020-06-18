@@ -11,23 +11,31 @@
 	<tbody>
 		<% users.each do |user| %>
 			<tr>
-				<td><%= attachment_image_tag user, :profile_image, format: 'jpg', size: "50x50", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+				<td>
+					<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "50x50", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
 				</td>
 				<td>
-					<%= link_to user.name, user_path(user), class: "btn-link" %></td>
-				<td>フォロー数：<%= user.follower.count %></td>
-			<td>フォロワー数：<%= user.followed.count %></td>
-			<td>
-          <% if current_user != user %>
-            <% if current_user.following?(user) %>
-              <%= link_to 'Unfollow', user_relationships_path(user), method: :delete, class: "btn btn-default follow-btn" %>
-            <% else %>
-              <%= link_to 'Follow me', user_relationships_path(user), method: :post, class: "btn btn-default follow-btn" %>
-            <% end %>
-          <% end %>
-        </td>
-		</tr>
+					<%= link_to user.name, user_path(user), class: "btn-link" %>
+				</td>
+				<td>
+					フォロー数：<%= user.follower.count %>
+				</td>
+				<td>
+					フォロワー数：<%= user.followed.count %>
+				</td>
+				<td>
+          			<% if current_user != user %>
+           				<% if current_user.following?(user) %>
+              				<%= link_to 'Unfollow', user_relationships_path(user), method: :delete, class: "btn btn-default follow-btn" %>
+            			<% else %>
+              				<%= link_to 'Follow me', user_relationships_path(user), method: :post, class: "btn btn-default follow-btn" %>
+            			<% end %>
+          			<% end %>
+        		</td>
+			</tr>
 		<% end %>
 	</tbody>
 </table>
-<%= paginate users %>
+<div class="paging">
+	<%= paginate users %>
+</div>

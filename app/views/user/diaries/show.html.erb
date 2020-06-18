@@ -17,7 +17,7 @@
 				<% end %>
 				<br>
 				<!-- 投稿した本人であれば表示する -->
-				<% unless current_user != @diary.user %>
+				<% if @diary.user_id == current_user.id %>
 					<%= link_to edit_diary_path(@diary), class: "btn-link" do %>
 						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 					<% end %>

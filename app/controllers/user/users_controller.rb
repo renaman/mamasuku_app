@@ -35,7 +35,7 @@ class User::UsersController < ApplicationController
 		if @user.update(user_params)
 		   redirect_to user_path(@user), notice: "successfully updated user!"
 		else
-			render :edit
+			render action: :edit
 		end
 	end
 

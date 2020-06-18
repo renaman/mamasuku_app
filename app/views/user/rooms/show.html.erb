@@ -1,33 +1,32 @@
 <div class="container main-container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
-		<h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
+			<h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
 
-		<div class="message" style="width: 400px;">
-			<% @chats.each do |chat| %>
-				<% if chat.user_id == current_user.id %>
-					<p style="text-align: right;">
-					<%= chat.created_at.strftime('%m/%d') %>
-					<%= attachment_image_tag current_user, :profile_image, format: 'jpg', size: "25x25", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
-					<%= chat.message %></p>
-				<% else %>
-					<p style="text-align: left;">
-					<%= chat.created_at.strftime('%m/%d') %>
-					<%= attachment_image_tag chat.user, :profile_image, format: 'jpg', size: "25x25", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
-					<%= chat.message %></p>
-    			<% end %>
-  			<% end %>
-		</div>
+			<div class="message" style="width: 400px;">
+				<% @chats.each do |chat| %>
+					<% if chat.user_id == current_user.id %>
+						<p style="text-align: right;">
+						<%= chat.created_at.strftime('%m/%d') %>
+						<%= attachment_image_tag current_user, :profile_image, format: 'jpg', size: "25x25", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+						<%= chat.message %></p>
+					<% else %>
+						<p style="text-align: left;">
+						<%= chat.created_at.strftime('%m/%d') %>
+						<%= attachment_image_tag chat.user, :profile_image, format: 'jpg', size: "25x25", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+						<%= chat.message %></p>
+    				<% end %>
+  				<% end %>
+			</div>
 
-		<%= form_with model: @chat, data: {remote: true} do |f| %>
-			<%= f.text_field :message, placeholder: "メッセージをここに", size: "60x5 "%>
-			<%= f.hidden_field :room_id %>
-			<%#= f.hidden_field :user_id,value:@user.id %>
-		<% end %>
-		<div class="paging">
-			<%= paginate @chats %>
-		</div>
-		
+			<%= form_with model: @chat, data: {remote: true} do |f| %>
+				<%= f.text_field :message, placeholder: "メッセージをここに", size: "60x5 "%>
+				<%= f.hidden_field :room_id %>
+			<% end %>
+			<div class="paging">
+				<%= paginate @chats %>
+			</div>
+	
 		</div>
 	</div>
 </div>

@@ -4,29 +4,28 @@ RSpec.describe "User::Users", type: :request do
 	describe 'ユーザー認証のテスト' do
 		describe 'ユーザー新規登録' do
 			before do
-				visit new_user_registrarion_path
+				visit new_user_registration_path
 			end
 			context '新規登録画面に遷移' do
 				it '新規登録に成功する' do
 					fill_in 'user[name]', with: Faker::Internet.username(specifier: 5)
-					fill_in 'user[email]', with: Faker::Internet.email
+					fill_in 'user[email]', with: "202005@example.com"
 					fill_in 'user[password]', with: 'password'
-					fill_in 'user[password_confirmation', with: 'password'
+					fill_in 'user[password_confirmation]', with: 'password'
 					fill_in 'user[postal_code]', with: 'postal_code'
-					fill_in 'user[prefecture_code]', with: 'prefecture_code'
+					select "大阪府", from: 'user_prefecture_code'
 					fill_in 'user[city]', with: 'city'
 					fill_in 'user[street]', with: 'street'
 					click_button 'Sign Up'
 
 					expect(page).to have_content 'successfully'
 				end
-				it '新規投稿に失敗する' do
+				it '新規登録に失敗する' do
 					fill_in 'user[name]', with: ''
 					fill_in 'user[email]', with: ''
 					fill_in 'user[password]', with: ''
-					fill_in 'user[password_confirmation', with: ''
+					fill_in 'user[password_confirmation]', with: ''
 					fill_in 'user[postal_code]', with: ''
-					fill_in 'user[prefecture_code]', with: ''
 					fill_in 'user[city]', with: ''
 					fill_in 'user[street]', with: ''
 					click_button 'Sign Up'
@@ -43,16 +42,16 @@ RSpec.describe "User::Users", type: :request do
 			context 'ログイン画面に遷移' do
 				let(:test_user) { user }
 				it 'ログインに成功する' do
-					fill_in 'user[name]', with: test_user.name
+					fill_in 'user[email]', with: test_user.email
 					fill_in 'user[password]', with: test_user.password
 					click_button 'Log In'
 
-					expect(page).have_content 'successfully'
+					expect(page).to have_content 'successfully'
 				end
 
 				it 'ログインに失敗する' do
-					fill_in 'user[name]', with: ''
-					fill_in 'user[passeord]', with: ''
+					fill_in 'user[email]', with: ''
+					fill_in 'user[password]', with: ''
 					click_button 'Log In'
 
 					expect(current_path).to eq(new_user_session_path)
@@ -63,12 +62,13 @@ RSpec.describe "User::Users", type: :request do
 	describe 'ユーザのテスト' do
 		let(:user) { create(:user) }
 		let!(:test_user2) { create(:user)}
-		let!(:daiary) { create(:diary, user: user) }
+		let!(:diary) { create(:diary, user: user) }
 		before do
 			visit new_user_session_path
 			fill_in 'user[email]', with: user.email
 			fill_in 'user[password]', with: user.password
 			click_button 'Log In'
+			visit diaries_path
 		end
 		describe 'サイドバーのテスト' do
 			context '表示の確認' do
@@ -79,7 +79,7 @@ RSpec.describe "User::Users", type: :request do
 					expect(page).to have_css('img.profile_image')
 				end
 				it '名前が表示される' do
-					expect(page).to have_css(user.name)
+					expect(page).to have_content(user.name)
 				end
 				it '自己紹介が表示される' do
 					expect(page).to have_content(user.introduction)
@@ -89,7 +89,7 @@ RSpec.describe "User::Users", type: :request do
 				end
 				it '編集リンクが表示される' do
 					visit user_path(user)
-					expect(page).to have_link '', href: edit_users_user_path
+					expect(page).to have_link '', href: edit_user_path(user)
 				end
 			end
 		end
@@ -97,7 +97,7 @@ RSpec.describe "User::Users", type: :request do
 		describe '編集のテスト' do
 			context '自分の編集画面へ遷移' do
 				it '遷移できる' do
-					visit_edit_user_path(user)
+					visit edit_user_path(user)
 					expect(current_path).to eq('/users/' + user.id.to_s + '/edit')
 				end
 			end
@@ -111,8 +111,8 @@ RSpec.describe "User::Users", type: :request do
 				before do
 					visit edit_user_path(user)
 				end
-				it 'User Infoと表示される' do
-					expect(page).to have_content('User Info')
+				it 'Edit Userと表示される' do
+					expect(page).to have_content('Edit User')
 				end
 				it '名前編集に自分の名前が表示される' do
 					expect(page).to have_field 'user[name]', with: user.name
@@ -129,13 +129,13 @@ RSpec.describe "User::Users", type: :request do
 				it '編集に成功する' do
 					click_button 'Update User'
 					expect(page).to have_content 'successfully'
-					expext(current_path).to eq('users/' + user.id.to_s)
+					expect(current_path).to eq('/users/' + user.id.to_s)
 				end
 				it '編集に失敗する' do
 					fill_in 'user[name]', with: ''
 					click_button 'Update User'
 					expect(page).to have_content 'error'
-					expect(current_path).to eq('users' + user.id.to_s + '/edit')
+					expect(current_path).to eq('/users/' + user.id.to_s)
 				end
 			end
 		end
