@@ -209,7 +209,7 @@ h2, thead, footer, .paging {
  	}
  	.footer-content {
 		text-align: center;
-		font-size: 16px;
+		font-size: 14px;
 		margin-bottom: 20px;
 	}
 	.footer-link {
@@ -297,6 +297,9 @@ h2, thead, footer, .paging {
  		height: 36px;
  		margin-right: 5px;
  	}
+ 	h2, thead, footer, .paging, .nav {
+		font-family: 'azuki';
+	}
  	
 }
 
