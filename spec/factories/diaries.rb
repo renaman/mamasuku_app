@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :diary do
-    user_id { 1 }
-    title { "MyString" }
-    body { "MyText" }
+    title { Faker::Lorem.characters(number:5) }
+    body { Faker::Lorem.characters(number:20) }
     image_id { "MyString" }
+    user
   end
 end

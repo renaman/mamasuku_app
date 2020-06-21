@@ -1,11 +1,11 @@
 <table class="table">
 	<tbody>
 		<tr>
-			<td><%= notification.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+			<td width="30%"><%= notification.created_at.strftime('%m/%d %H:%M') %></td>
 			<td>
-				<%= link_to notification.visiter.name, room_path(notification.chat.room_id) %>さんからメッセージが届いています。
+				<%= link_to notification.visiter.name, room_path(notification.chat.room_id), class: "btn-link" %>さんからメッセージが届いています。
 			</td>
-			<td>
+			<td width="30%">
 				<%= " (#{time_ago_in_words(notification.created_at)}前)" %>
 			</td>
 		</tr>

@@ -16,13 +16,15 @@
 							<td><%= diary.created_at.strftime('%Y/%m/%d') %></td>
 							<td><%= diary.title %></td>
 							<td>
-								<%= link_to 'Show', admin_user_diary_path(diary.user, diary) %>
-								<% #ネストしていることもあり詳しい情報を欲しいと言われたので、diary.userとdiaryの二つを入れた。 %>
+								<%= link_to 'Show', admin_user_diary_path(diary.user, diary), class: "btn-link" %>
 							</td>
 						</tr>
 					</tbody>
 				<% end %>
 			</table>
+			<div class="paging">
+				<%= paginate @diaries %>
+			</div>
 		</div>
 	</div>
 </div>

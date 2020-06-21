@@ -1,60 +1,69 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5  col-md-offset-5">
-<h2>Sign Up</h2>
+    <div class="col-md-5  col-md-offset-4">
+      <h2>Sign Up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <% f.label :name %>Name<br />
-    <%= f.text_field :name, autofocus: true, placeholder: "名前", class: "name", size: "25x5" %>
+        <div class="field">
+          <span class="label-name">
+          <% f.label :name %>Name</span><br />
+          <%= f.text_field :name, autofocus: true, placeholder: "名前", class: "name", size: "30x5" %>
+        </div>
+
+        <div class="field">
+          <span class="label-name">
+          <% f.label :email %>Email</span><br />
+          <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", autocomplete: "email", size: "30x5" %>
+        </div>
+
+        <div class="field">
+          <span class="label-name">
+          <% f.label :postal_code %>Postal Code</span><br />
+          <%= f.text_field :postal_code, placeholder: "郵便番号", size: "30x5" %>
+        </div>
+
+        <div class="field">
+          <span class="label-name">
+          <% f.label :prefecture_code %>Address
+        </span><br />
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, placeholder: "都道府県", size: "40x5" %>
+        </div>
+
+        <div class="field">
+          <span class="label-name">
+          <% f.label :city %>City</span><br />
+          <%= f.text_field :city, placeholder: "市町村", size: "40x5" %>
+        </div>
+
+        <div class="field">
+          <span class="label-name">
+          <% f.label :street %>Street</span><br />
+          <%= f.text_field :street, placeholder: "番地", size: "40x5" %>
+        </div>
+
+        <div class="field">
+          <span class="label-name">
+          <% f.label :password %>Pass Word
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>文字以上)</em>
+          <% end %></span><br />
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", size: "30x5" %>
+        </div>
+
+        <div class="field">
+          <span class="label-name">
+          <% f.label :password_confirmation %>Pass Word</span><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認)", size: "30x5" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign Up", class: "btn btn-default" %>
+        </div>
+      <% end %><br>
+
+      <%= link_to "Log In", new_session_path(resource_name), class: "btn-link" %>
+    </div>
   </div>
-
-  <div class="field">
-    <% f.label :email %>Email<br />
-    <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", autocomplete: "email", size: "25x5" %>
-  </div>
-
-  <div class="field">
-    <% f.label :postal_code %>Postal Code<br />
-    <%= f.text_field :postal_code, placeholder: "郵便番号", size: "25x5" %>
-  </div>
-  <div class="field">
-
-    <% f.label :prefecture_code %>Address<br />
-    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, placeholder: "都道府県", size: "30x5" %>
-  </div>
-
-  <div class="field">
-    <% f.label :city %>City<br />
-    <%= f.text_field :city, placeholder: "市町村", size: "30x5" %>
-  </div>
-
-  <div class="field">
-    <% f.label :street %>Street<br />
-    <%= f.text_field :street, placeholder: "番地", size: "30x5" %>
-  </div>
-
-  <div class="field">
-    <% f.label :password %>Pass Word
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", size: "25x5" %>
-  </div>
-
-  <div class="field">
-    <% f.label :password_confirmation %>Pass Word<br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認)", size: "25x5" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-default" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
-</div>
-</div>
 </div>

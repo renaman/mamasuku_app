@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   	resources :users, only: [:index, :show, :edit, :update] do
   	   resources :diaries, only: [:index, :show, :destroy]
     end
+    resources :contacts, only: [:index, :edit, :update]
   end
 
   #user
@@ -36,10 +37,14 @@ Rails.application.routes.draw do
   	get 'hide' => 'users#hide'
     resources :rooms, only: [:create, :show]
   	resources :chats, only: [:create]
-  	resources :contacts, only: [:index, :create]
-  	get 'contacts/thanxs' => 'contacts#thanxs'
+  	resources :contacts, only: [:new, :create]
+  	get 'contacts/thanks' => 'contacts#thanks'
   	get 'search' => 'search#search'
     resources :notifications, only: [:index]
+  end
+
+  if Rails.env.development?
+     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

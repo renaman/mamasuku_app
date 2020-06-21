@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-		@users = User.all
+		@users = User.page(params[:page]).per(15)
 	end
 
 	def show
@@ -20,8 +20,11 @@ class Admin::UsersController < ApplicationController
 		else
 			@user.update(is_active: true)
 		end
-		@user.update(user_params)
-		redirect_to admin_user_path(@user)
+		if @user.update(user_params)
+		   redirect_to admin_user_path(@user), notice: "successfully updated user!"
+		else
+			render :edit
+		end
 	end
 
 	private

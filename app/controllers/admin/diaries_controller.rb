@@ -2,7 +2,7 @@ class Admin::DiariesController < ApplicationController
 	before_action :authenticate_admin!
 	def index
 		@user = User.find(params[:user_id])
-		@diaries = @user.diaries
+		@diaries = @user.diaries.page(params[:page]).order(created_at: :desc).per(15)
 	end
 
 	def show
@@ -12,7 +12,7 @@ class Admin::DiariesController < ApplicationController
 	def destroy
 		@diary = Diary.find(params[:id])
 		@diary.destroy
-		redirect_to admin_user_diaries_path
+		redirect_to admin_user_diaries_path, notice: "successfully deleted diary!"
 	end
 
 	def diary_params

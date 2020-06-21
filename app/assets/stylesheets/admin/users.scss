@@ -10,9 +10,19 @@ a.btn.btn-default.edit-btn {
 	font-size: 16px;
 	border-left: 1px solid #F8E3F0;
 	border-right: 1px solid #F8E3F0;
+	border-bottom: 1px solid #F8E3F0;
 	text-align: center;
 	background-color: #FEEEED;
 }
 .right-td {
 	border-right: 1px solid #F8E3F0;
+	border-bottom: 1px solid #F8E3F0;
+}
+td.long-td, .contact-td {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.id-box {
+	width: 10%;
 }

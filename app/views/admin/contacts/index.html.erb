@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Contact Index</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Day</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @contacts.each do |contact| %>
+						<tr>
+							<td class="contact-td"><%= contact.name %></td>
+							<td class="contact-td"><%= contact.email %></td>
+							<td><%= contact.created_at.strftime("%m月%d日 ") %></td>
+							<td><%= link_to "返信", edit_admin_contact_path(contact), class: "btn btn-default contact-btn" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

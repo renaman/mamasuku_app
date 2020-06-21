@@ -1,4 +1,6 @@
 class User::UsersController < ApplicationController
+	before_action :authenticate_user!
+	before_action :screen_user, only: [:update, :edit]
 
 	def show
 		@user = User.find(params[:id])
@@ -30,8 +32,11 @@ class User::UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@user.update(user_params)
-		redirect_to user_path(@user)
+		if @user.update(user_params)
+		   redirect_to user_path(@user), notice: "successfully updated user!"
+		else
+			render action: :edit
+		end
 	end
 
 	def leave
@@ -41,12 +46,18 @@ class User::UsersController < ApplicationController
 		@user = current_user
 		@user.update(is_active: false)
 		reset_session
-		redirect_to root_path
+		redirect_to root_path, notice: "You have withdrawn!"
 	end
 
 	private
 	def user_params
 		params.require(:user).permit(:name, :age, :profile_image, :introduction, :remove_profile_image)
+	end
+
+	def screen_user
+		if params[:id].to_i != current_user.id
+			redirect_to user_path(current_user)
+		end
 	end
 
 end

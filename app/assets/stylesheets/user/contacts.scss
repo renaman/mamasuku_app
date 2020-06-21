@@ -1,0 +1,25 @@
+// Place all the styles related to the user/contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.thanks-content {
+	margin-top: 100px;
+}
+.message-form {
+	width: 50%;
+	height: 300px;
+}
+
+/*レスポンシブ対応425px以下*/
+@media screen and (max-width:425px) {
+	.message-form {
+		width: 96%;
+		height: 200px;
+	}
+	.contact-form {
+	width: 96%;
+	}
+	.thanks-content {
+		font-size: 20px;
+	}
+}

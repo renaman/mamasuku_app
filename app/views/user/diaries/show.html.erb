@@ -2,26 +2,28 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="title-head">
-				Title:<%= @diary.title %>
+				<%= @diary.created_at.strftime('%y/%m/%d') %><br>
+				<%= @diary.title %>
 			</div>
 			<div class="image-content">
-				<%= attachment_image_tag @diary, :image, :fill, 400, 300, format: 'jpg' %>
+				<%= attachment_image_tag @diary, :image, :fill, 400, 300, format: 'jpg', class: "show-image" %>
 			</div>
 			<div class="diary_content">
 				<%= simple_format(@diary.body) %>
 			</div>
-			<div class="bottom-box">By:
-				<%= link_to user_path(@diary.user) do %>
+			<div class="bottom-box">
+				<span class="user-name">By:</span>
 				<%= attachment_image_tag @diary.user, :profile_image, size: "30x30", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+				<%= link_to user_path(@diary.user), class: "btn-link" do %>
 				<%= @diary.user.name %>
 				<% end %>
 				<br>
 				<!-- 投稿した本人であれば表示する -->
-				<% unless current_user != @diary.user %>
-					<%= link_to edit_diary_path(@diary) do %>
+				<% if @diary.user_id == current_user.id %>
+					<%= link_to edit_diary_path(@diary), class: "btn-link" do %>
 						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 					<% end %>
-					<%= link_to diary_path(@diary), method: :delete, data: { confirm: 'Are you sure?'} do %>
+					<%= link_to diary_path(@diary), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-link" do %>
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span><br>
 					<% end %>
 				<% end %>
@@ -33,11 +35,12 @@
 				<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
 				<%= @diary.diary_comments.count %>
 				<div class="show-tb comment_<%= @diary.id %>">
-					<%= render 'comment', diary_comments: @diary.diary_comments %>
+					<%= render 'comment', diary_comments: @diary_comments %>
 				</div>
+				
 				<!-- コメント投稿フォーム -->
-				<%= form_with model:[@diary, @diary_comment], method: :post, data: {remote: true} do |f| %>
-					<%= f.text_area :comment, placeholder: "コメントをここに", size: "120x5" %>
+				<%= form_with model:[@diary, @diary_comment], method: :post do |f| %>
+					<%= f.text_area :comment, placeholder: "コメントをここに", class: "comment-form" %><br>
 					<%= f.submit "Comment Up", class: "btn btn-default" %>
 				<% end %>
 			</div>

@@ -16,11 +16,8 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.clearfix::after {
-	content: "";
-	display: block;
-	clear: both;
-}
+
+/*全体*/
 header {
 	height: 250px;
 	background-color: #F8E3F0;
@@ -33,9 +30,17 @@ ul {
  }
  .nav {
  	text-align: center;
- 	font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
- 	font-size: 20px;
+ 	font-family: Noto, Hiragino Sans,Helvetica,Arial,sans-serif;
+ 	font-size: 26px;
+ 	font-family: 'CabinSketch-Bold';
  }
+ .nav-link, .footer-link {
+	color: #a0522d;
+}
+.nav-link:hover, .footer-link:hover {
+	text-decoration: none;
+	color: white;
+}
  li {
  	display: inline-block;
  	margin-right: 80px;
@@ -44,24 +49,49 @@ ul {
  li:last-child {
  	margin-right: 0;
  }
- a:hover {
- 	text-decoration: none;
+ body,
+#wrapper {
+  	display: flex;
+  	flex-direction: column;
+  	min-height: 100%;
+}
+.container {
+	margin-bottom: 150px;
+}
+.main-container {
+ 	margin-top: 30px;
  }
- a {
-   color: #331a00;
+ main {
+ 	margin-bottom: 150px;
  }
  footer {
  	height: 200px;
  	background-color: #F8E3F0;
+ 	padding-top: 50px;
+ 	color: #a0522d;
+ 	font-size: 20px;
  }
- .main-container {
- 	margin-top: 30px;
- }
+ .footer-link {
+	font-size: 20px;
+	margin-left: 50px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.footer-content {
+	text-align: center;
+}
  table, tr, thead, th {
  	border-top: 2px solid #F8E3F0;
  }
- thead {
+ .title-td {
+ 	width: 50%;
+ 	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+thead {
  	background-color: #F8E3F0;
+ 	font-size: 20px;
  }
  .col-md-4 {
  	border: 2px solid #F8E3F0;
@@ -71,14 +101,7 @@ ul {
  	text-align: center;
  }
  .field {
- margin-bottom: 5px;
- }
- .follow-table {
- 	width: 80%;
- 	margin: 0 auto;
- }
- .follow-headline {
- 	margin-left: 150px;
+ 	margin-bottom: 5px;
  }
  select#q_user_age_eq {
  	width: 200px;
@@ -91,5 +114,207 @@ ul {
     margin-right: 10px;
 }
 .control-group {
+	margin-top: 60px;
+}
+#notice {
 	margin-top: 20px;
+	margin-left: 200px;
+	color: #9999FF;
+}
+.left {
+	width: 40%;
+}
+.right {
+	width: 60%;
+	text-align: center;
+}
+div.glyphicon.glyphicon-bell.email-link {
+	position: relative;
+	color: #ffd700;
+}
+i.fa.fa-circle.notification-circle {
+	font-size: 3px;
+	margin-left: -6px;
+}
+a.col-xs-12.btn.btn-default.glyphicon.glyphicon-cog {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+a.btn.btn-default.glyphicon.glyphicon-cog {
+    padding: 5px 160px 5px;
+}
+img.attachment.user.profile_image.img-circle {
+    margin-bottom: 10px;
+}
+.btn-link, a {
+	color: black;
+}
+.btn-link:hover, a:hover {
+	color: white;
+	background-color: #d8bfd8;
+	text-decoration: none;
+}
+@font-face{
+   font-family: 'CabinSketch-Bold';
+   src: font-url('CabinSketch-Bold.ttf');
+   font-family: 'azuki';
+   src: font-url('azuki.ttf');
+ }
+a.btn.btn-default.follow-btn, input.btn.btn-default, tbody, label, .title-head, .top-contant, .about-content, #notice, .label-name, .btn-link, .user-name {
+	font-family: 'azuki';
+	font-size: 16px;
+	font-weight: bold;
+}
+.comment-td {
+	font-family: normal;
+	font-weight: normal;
+}
+h2, thead, footer, .paging {
+	font-family: 'CabinSketch-Bold';
+}
+.paging {
+	text-align: center;
+	font-size: 20px;
+}
+#error-message, #error_explanation {
+	color: #dc143c;
+}
+
+/*レスポンシブ対応375px以下*/
+@media screen and (max-width:375px) {
+	.login-form {
+		width: 98%;
+		height: 30px;
+	}
+	input.btn.btn-default.search {
+ 		padding: 6px 60px 6px;
+ 		margin-top: 5px;
+ 	}
+}
+
+/*レスポンシブ対応425px以下*/
+@media screen and (max-width:425px) {
+	ul {
+    	padding-inline-start: 0px;
+	}
+	.nav {
+		font-size: 22px;
+	}
+	li {
+ 		margin-right: 2px;
+ 		padding: 3px;
+ 	}
+ 	li:last-child {
+ 		margin-right: 0px;
+ 	}
+ 	.footer-content {
+		text-align: center;
+		font-size: 16px;
+		margin-bottom: 20px;
+	}
+	.footer-link {
+		font-size: 16px;
+		margin-left: 10px;
+		display: inline-block;
+		margin-bottom: 15px;
+	}
+ 	.col-md-4 {
+ 		width: 90%;
+ 		margin: 0 auto;
+ 	}
+ 	.col-md-8 {
+ 		width: 96%;
+ 		margin: 0 auto;
+ 	}
+ 	table {
+ 		width: 98%;
+ 		table-layout: fixed;
+ 	}
+ 	th {
+ 		font-size: 10px;
+ 	}
+ 	td {
+ 		font-size: 11px;
+ 	}
+ 	a.btn.btn-default.follow-btn, a.btn.btn-default.chat-btn, input.btn.btn-default.chat-start　{
+ 		font-size: 12px;
+ 		padding: 2px 5px 2px;
+ 	}
+ 	#notice {
+		margin-left: 50px;
+	}
+	a.btn-link {
+		font-size: 11px;
+	}
+	a.btn.btn-default.glyphicon.glyphicon-cog {
+		padding: 5px 50px 5px;
+	}
+	.show-image {
+		width: 96%;
+		height: 270px;
+	}
+}
+
+/*レスポンシブ対応425px~768px*/
+@media screen and (min-width: 425px) and (max-width:768px) {
+	.nav {
+		font-size: 22px;
+	}
+	li {
+ 		margin-right: 3px;
+ 		padding: 10px;
+ 	}
+ 	li:last-child {
+ 		margin-right: 25px;
+ 	}
+ 	th {
+ 		font-size: 15px;
+ 	}
+}
+
+/*レスポンシブ対応768px以下*/
+@media screen and (max-width:768px) {  
+    .top-text {
+    	font-size: 20px;
+    }
+    .text-content {
+    	font-size: 14px;
+    }
+    #notice {
+		margin-left: 30px;
+	}
+	.col-md-4 {
+ 		width: 80%;
+ 		margin: 0 auto;
+ 	}
+ 	input#q_body_or_user_name_cont {
+    	height: 35px;
+    	width: 120px;
+    	margin-right: 5px;
+	}
+	select#q_user_age_eq {
+ 		width: 135px;
+ 		height: 36px;
+ 		margin-right: 5px;
+ 	}
+ 	
+}
+
+/*レスポンシブ対応1024px以下*/
+@media screen and (max-width:1024px) {
+	a.btn.btn-default.glyphicon.glyphicon-cog {
+		padding: 5px 100px 5px;
+	}
+}
+
+/*レスポンシブ対応1024px~1440px*/
+@media screen and (min-width:1024px) and (max-width:1440px) {
+	div#wrapper {
+		margin-top: 20px;
+		margin-bottom: 60px;
+	}
+	.admin-top {
+		margin-top: 70px;
+		margin-bottom: 60px;
+	}
 }

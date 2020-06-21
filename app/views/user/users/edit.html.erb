@@ -2,7 +2,15 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
 			<h2>Edit User</h2>
+			
 			<%= form_for(@user, url: user_path(@user)) do |f| %>
+				<% if @user.errors.any? %>
+					<%= @user.errors.count %>
+					error prohibited this obj from being saved:<br>
+						<% @user.errors.full_messages.each do |message| %>
+						<%= message %>
+					<% end %>
+				<% end %><br>
 				<%= f.label :name %><br>
 				<%= f.text_field :name, size: "30x5", placeholder: "名前" %><br />
 				<%= f.label :profile_image %>
@@ -12,8 +20,8 @@
 				<%= f.label :age %>
 				<%= f.select :age, [["20代未満", "20代未満"], ["20代前半", "20代前半"], ["20代後半"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"], ["60代", "60代"]], include_blank: "選択してください" %><br />
 				<%= f.label :introduction %><br>
-				<%= f.text_area :introduction, size: "50x10", placeholder: "50文字以内" %><br>
-				<%= f.submit 'Update', class: "btn btn-default" %>
+				<%= f.text_area :introduction, size: "50x10", placeholder: "50文字以内", class: "introduction-form" %><br>
+				<%= f.submit 'Update User', class: "btn btn-default" %>
 			<% end %>
 		</div>
 	</div>

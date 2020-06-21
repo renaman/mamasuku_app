@@ -1,4 +1,6 @@
 class User::ChatsController < ApplicationController
+	before_action :authenticate_user!
+	before_action :screen_chat, only: [:create]
 
 	def create
 		@chat = current_user.chats.new(chat_params)#チャット作成
@@ -18,4 +20,11 @@ class User::ChatsController < ApplicationController
 	def chat_params
 		params.require(:chat).permit(:message, :room_id, :user_id)
 	end
+
+	def screen_chat
+		unless current_user
+			redirect_to root_path
+		end
+	end
+
 end

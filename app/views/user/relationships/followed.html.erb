@@ -1,6 +1,12 @@
-<h2 class="follow-headline">Followed User</h2>
-<% if @users.count > 0 %>
-	<%= render 'relationship', users: @users %>
-<% else %>
-	<p>ユーザはいません</p>
-<% end %>
+<div class="container main-container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Followed User</h2>
+			<% if @users.count > 0 %>
+				<%= render 'relationship', users: @users %>
+			<% else %>
+				<p>ユーザはいません</p>
+			<% end %>
+		</div>
+	</div>
+</div>
