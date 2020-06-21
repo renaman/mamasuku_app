@@ -1,10 +1,10 @@
-<table class="table follow-table">
+<table class="table">
 	<thead>
 		<tr>
 			<th>Image</th>
 			<th>Name</th>
-			<th></th>
-			<th></th>
+			<th class="follow-th">Follow</th>
+			<th class="follow-th">Follower</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -12,16 +12,16 @@
 		<% users.each do |user| %>
 			<tr>
 				<td>
-					<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "50x50", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+					<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "30x30", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
 				</td>
 				<td>
 					<%= link_to user.name, user_path(user), class: "btn-link" %>
 				</td>
 				<td>
-					フォロー数：<%= user.follower.count %>
+					<%= user.follower.count %>
 				</td>
 				<td>
-					フォロワー数：<%= user.followed.count %>
+					<%= user.followed.count %>
 				</td>
 				<td>
           			<% if current_user != user %>

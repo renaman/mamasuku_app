@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'ヘッダーのテスト' do
+describe 'Userヘッダーのテスト' do
   	describe 'ログインしていない場合' do
     	before do
       		visit root_path
@@ -15,13 +15,13 @@ describe 'ヘッダーのテスト' do
         		about_link = find_all('a')[1].native.inner_text
         		expect(about_link).to match(/About/i)
     		end
-    		it 'Sign Upリンクが表示される' do
+    		it 'SignUpリンクが表示される' do
         		signup_link = find_all('a')[2].native.inner_text
-        		expect(signup_link).to match(/Sign Up/i)
+        		expect(signup_link).to match(/SignUp/i)
         	end
-        	it 'Log Inリンクが表示される' do
+        	it 'LogInリンクが表示される' do
         		login_link = find_all('a')[3].native.inner_text
-        		expect(login_link).to match(/Log In/i)
+        		expect(login_link).to match(/LogIn/i)
         	end
  		end
  		context 'ヘッダーのリンクを確認' do
@@ -36,12 +36,12 @@ describe 'ヘッダーのテスト' do
         		click_link about_link
         		is_expected.to eq(homes_about_path)
       		end
-      		it 'Sign Up画面に遷移する' do
+      		it 'SignUp画面に遷移する' do
         		signup_link = find_all('a')[2].native.inner_text
         		click_link signup_link
         		is_expected.to eq(new_user_registration_path)
       		end
-      		it 'Log In画面に遷移する' do
+      		it 'LogIn画面に遷移する' do
         		login_link = find_all('a')[3].native.inner_text
         		click_link login_link
         		is_expected.to eq(new_user_session_path)
@@ -66,13 +66,13 @@ describe 'ヘッダーのテスト' do
         		new_link = find_all('a')[1].native.inner_text
         		expect(new_link).to match(/New/i)
       		end
-      		it 'My Pageリンクが表示される' do
+      		it 'MyPageリンクが表示される' do
         		mypage_link = find_all('a')[2].native.inner_text
-        		expect(mypage_link).to match(/My Page/i)
+        		expect(mypage_link).to match(/MyPage/i)
       		end
-      		it 'Log Outリンクが表示される' do
+      		it 'LogOutリンクが表示される' do
         		logout_link = find_all('a')[3].native.inner_text
-        		expect(logout_link).to match(/log Out/i)
+        		expect(logout_link).to match(/logOut/i)
       		end
       	end
 
@@ -88,12 +88,12 @@ describe 'ヘッダーのテスト' do
         		click_link new_link
         		is_expected.to eq('/diaries/new')
       		end
-      		it 'My Page画面に遷移する' do
+      		it 'MyPage画面に遷移する' do
         		mypage_link = find_all('a')[2].native.inner_text
         		click_link mypage_link
         		is_expected.to eq('/users/' + user.id.to_s)
       		end
-      		it 'log Outする' do
+      		it 'LogOutする' do
         		logout_link = find_all('a')[3].native.inner_text
         		click_link logout_link
         		expect(page).to have_content 'Signed out successfully.'

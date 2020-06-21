@@ -5,3 +5,10 @@
 a.btn.btn-danger.destroy-btn {
     padding: 5px 300px 5px;
 }
+
+/*レスポンシブ対応768px以下*/
+@media screen and (max-width:768px) {
+	a.btn.btn-danger.destroy-btn {
+    	padding: 5px 100px 5px;
+	}
+}

@@ -8,7 +8,7 @@
 				<% end %>
 			</td>
 			<td class="comment-td"><%= diary_comment.comment %></td>
-			<td>
+			<td class="comment-link">
 				<% unless current_user != diary_comment.user %>
 					<%= link_to diary_diary_comment_path(diary_id: @diary.id, id: diary_comment.id), class: "btn-link", method: :delete do %>
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>

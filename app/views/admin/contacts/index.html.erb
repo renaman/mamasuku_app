@@ -14,9 +14,9 @@
 				<tbody>
 					<% @contacts.each do |contact| %>
 						<tr>
-							<td><%= contact.name %></td>
-							<td><%= contact.email %></td>
-							<td><%= contact.created_at.strftime("%Y年%m月%d日 ") %></td>
+							<td class="contact-td"><%= contact.name %></td>
+							<td class="contact-td"><%= contact.email %></td>
+							<td><%= contact.created_at.strftime("%m月%d日 ") %></td>
 							<td><%= link_to "返信", edit_admin_contact_path(contact), class: "btn btn-default contact-btn" %></td>
 						</tr>
 					<% end %>

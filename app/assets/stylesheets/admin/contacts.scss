@@ -9,3 +9,10 @@ a.btn.btn-default.contact-btn {
 	border-bottom: 2px dashed #F19C99;
 	width: 20%;
 }
+
+/*レスポンシブ対応425px以下*/
+@media screen and (max-width:425px) {
+	.contact-edit {
+		font-size: 16px;
+	}
+}

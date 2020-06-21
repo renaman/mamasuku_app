@@ -59,6 +59,7 @@ group :test do
   gem "factory_bot_rails"
   gem 'capybara', '>= 2.15'
   gem 'faker'
+  gem 'pry-rails'
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
 

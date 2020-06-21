@@ -2,15 +2,17 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="title-head">
-				Title:<%= @diary.title %>
+				<%= @diary.created_at.strftime('%y/%m/%d') %><br>
+				<%= @diary.title %>
 			</div>
 			<div class="image-content">
-				<%= attachment_image_tag @diary, :image, :fill, 400, 300, format: 'jpg' %>
+				<%= attachment_image_tag @diary, :image, :fill, 400, 300, format: 'jpg', class: "show-image" %>
 			</div>
 			<div class="diary_content">
 				<%= simple_format(@diary.body) %>
 			</div>
-			<div class="bottom-box">By:
+			<div class="bottom-box">
+				<span class="user-name">By:</span>
 				<%= attachment_image_tag @diary.user, :profile_image, size: "30x30", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
 				<%= link_to user_path(@diary.user), class: "btn-link" do %>
 				<%= @diary.user.name %>
@@ -34,12 +36,11 @@
 				<%= @diary.diary_comments.count %>
 				<div class="show-tb comment_<%= @diary.id %>">
 					<%= render 'comment', diary_comments: @diary_comments %>
-					<%#= paginate @diary_comments %>
 				</div>
 				
 				<!-- コメント投稿フォーム -->
 				<%= form_with model:[@diary, @diary_comment], method: :post do |f| %>
-					<%= f.text_area :comment, placeholder: "コメントをここに", size: "110x5" %><br>
+					<%= f.text_area :comment, placeholder: "コメントをここに", class: "comment-form" %><br>
 					<%= f.submit "Comment Up", class: "btn btn-default" %>
 				<% end %>
 			</div>

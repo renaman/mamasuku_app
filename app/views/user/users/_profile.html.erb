@@ -33,19 +33,21 @@
 		<% end %>
 	</tr>
 	<tr>
-		<th class="left-th">Notice</th>
-		<th class="right">
-			<%= link_to notifications_path, class: "btn-link" do %>
-				<div class="glyphicon glyphicon-bell email-link" aria-hidden="true"></div>
-			<% end %>
-			 <% if unchecked_notifications.any? %>
-    			<i class="fa fa-circle notification-circle" ></i>
-  			<% end %>
-		</th>
+		<% unless current_user.id != @user.id %>
+			<th class="left-th">Notice</th>
+			<th class="right">
+				<%= link_to notifications_path, class: "btn-link" do %>
+					<div class="glyphicon glyphicon-bell email-link" aria-hidden="true"></div>
+				<% end %>
+			 		<% if unchecked_notifications.any? %>
+    					<i class="fa fa-circle notification-circle" ></i>
+  					<% end %>
+			</th>
+		<% end %>
 	</tr>
 	<tr>
 		<th class="left-th">Introduction</th>
-		<th><%= user.introduction %></th>
+		<th class="right"><%= user.introduction %></th>
 	</tr>
 	<tr>
 		<th class="left-th">follows</th>

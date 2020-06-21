@@ -72,8 +72,12 @@ RSpec.describe "User::Diaries", type: :request do
 				expect(current_path).to eq('/diaries')
 			end
 		end
+		before do
+			visit edit_diary_path(diary)
+		end
 		context '表示の確認' do
 			it 'Edit Diaryと表示される' do
+				#binding.pry
 				expect(page).to have_content('Edit Diary')
 			end
 			it 'title編集フォームが表示される' do
@@ -94,13 +98,21 @@ RSpec.describe "User::Diaries", type: :request do
 				visit edit_diary_path(diary)
 				fill_in 'diary[title]', with: ''
 				click_button 'Update Diary'
-				expect(page).to have_content 'successfully'
+				expect(page).to have_content 'error'
 				expect(current_path).to eq('/diaries/' + diary.id.to_s)
 			end
 		end
 	end
 	describe '一覧のテスト' do
+		let(:user) { create(:user) }
+		let!(:user2) { create(:user) }
+		let!(:diary) { create(:diary, user: user) }
+		let!(:diary2) { create(:diary, user: user2) }
 		before do
+			visit new_user_session_path
+			fill_in 'user[email]', with: user.email
+			fill_in 'user[password]', with: user.password
+			click_button 'Log In'
 			visit diaries_path
 		end
 		context '表示の確認' do
@@ -119,6 +131,17 @@ RSpec.describe "User::Diaries", type: :request do
   	end
 
   	describe '詳細のテスト' do
+  		let(:user) { create(:user) }
+		let!(:user2) { create(:user) }
+		let!(:diary) { create(:diary, user: user) }
+		let!(:diary2) { create(:diary, user: user2) }
+		before do
+			visit new_user_session_path
+			fill_in 'user[email]', with: user.email
+			fill_in 'user[password]', with: user.password
+			click_button 'Log In'
+			visit diary_path(diary)
+		end
   		context '自分・他人共通の投稿詳細画面の表示を確認' do
   			it '投稿のtitleが表示される' do
   				visit diary_path(diary)

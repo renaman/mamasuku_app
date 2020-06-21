@@ -6,33 +6,27 @@
 			<th>Title</th>
 			<th>Favorite</th>
 			<th>Comment</th>
-			<th>Follow</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% diaries.each do |diary| %>
 			<tr>
 				<td>
-					<%= diary.created_at.strftime('%Y/%m/%d') %>
+					<%= diary.created_at.strftime('%m/%d') %>
 				</td>
-				<td>
+				<td class="long-td">
 					<%= link_to user_path(diary.user), class: "name-link" do %>
 						<%= diary.user.name %>
 					<% end %>
 				</td>
-				<td>
+				<td class="title-td long-td">
 					<%= link_to diary.title, diary_path(diary), class: "title-link" %>
 				</td>
 				<td class="diary_<%= diary.id %>">
-				<!-- 階層を分けているのでuser/diaries/favoriteのように詳しく記述する必要がある。 -->
-				<!-- diaryを定義できていないとエラー表示があったので、render内でdiaryの記述を追加した。 -->
 					<%= render 'user/diaries/favorite', diary: diary, favorites: diary.favorites %>
 				</td>
 				<td>
 					<%= diary.diary_comments.count %>件
-				</td>
-				<td>
-					<%= render 'user/diaries/follow', user: diary.user %>
 				</td>
 			</tr>
 		<% end %>

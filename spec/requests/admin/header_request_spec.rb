@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'ヘッダーのテスト' do
+describe 'Adminヘッダーのテスト' do
   	describe 'ログインしていない場合' do
     	before do
       		visit new_admin_session_path
@@ -11,13 +11,13 @@ describe 'ヘッダーのテスト' do
   				about_link = find_all('a')[0].native.inner_text
   				expect(about_link).to match(/About/i)
   			end
-  			it 'User Pageリンクが表示される' do
+  			it 'UserPageリンクが表示される' do
         	userpage_link = find_all('a')[1].native.inner_text
-        	expect(userpage_link).to match(/User Page/i)
+        	expect(userpage_link).to match(/UserPage/i)
     		end
-        it 'Log Inリンクが表示される' do
+        it 'LogInリンクが表示される' do
         	login_link = find_all('a')[2].native.inner_text
-        	expect(login_link).to match(/Log In/i)
+        	expect(login_link).to match(/LogIn/i)
         end
  		end
  		context 'ヘッダーのリンクを確認' do
@@ -27,12 +27,12 @@ describe 'ヘッダーのテスト' do
         		click_link about_link
         		is_expected.to eq(homes_about_path)
       		end
-      		it 'User Page画面に遷移する' do
+      		it 'UserPage画面に遷移する' do
         		userpage_link = find_all('a')[1].native.inner_text
         		click_link userpage_link
         		is_expected.to eq(root_path)
       		end
-      		it 'Log In画面に遷移する' do
+      		it 'LogIn画面に遷移する' do
         		login_link = find_all('a')[2].native.inner_text
         		click_link login_link
         		is_expected.to eq(new_admin_session_path)
@@ -53,17 +53,17 @@ describe 'ヘッダーのテスト' do
         		top_link = find_all('a')[0].native.inner_text
         		expect(top_link).to match(/Top/i)
       		end
-      		it 'User Pageリンクが表示される' do
+      		it 'UserPageリンクが表示される' do
         		userpage_link = find_all('a')[1].native.inner_text
-        		expect(userpage_link).to match(/User Page/i)
+        		expect(userpage_link).to match(/UserPage/i)
       		end
       		it 'Contactリンクが表示される' do
         		contact_link = find_all('a')[2].native.inner_text
         		expect(contact_link).to match(/Contact/i)
       		end
-      		it 'Log Outリンクが表示される' do
+      		it 'LogOutリンクが表示される' do
         		logout_link = find_all('a')[3].native.inner_text
-        		expect(logout_link).to match(/log Out/i)
+        		expect(logout_link).to match(/logOut/i)
       		end
       	end
 
@@ -74,7 +74,7 @@ describe 'ヘッダーのテスト' do
         		click_link top_link
         		is_expected.to eq('/admin/top')
       		end
-      		it 'User Page画面に遷移する' do
+      		it 'UserPage画面に遷移する' do
         		userpage_link = find_all('a')[1].native.inner_text
         		click_link userpage_link
         		is_expected.to eq('/admin/users')
@@ -84,7 +84,7 @@ describe 'ヘッダーのテスト' do
         		click_link contact_link
         		is_expected.to eq('/admin/contacts')
       		end
-      		it 'log Outする' do
+      		it 'logOutする' do
         		logout_link = find_all('a')[3].native.inner_text
         		click_link logout_link
         		expect(page).to have_content 'Signed out successfully.'

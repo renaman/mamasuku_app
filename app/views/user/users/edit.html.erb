@@ -20,7 +20,7 @@
 				<%= f.label :age %>
 				<%= f.select :age, [["20代未満", "20代未満"], ["20代前半", "20代前半"], ["20代後半"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"], ["60代", "60代"]], include_blank: "選択してください" %><br />
 				<%= f.label :introduction %><br>
-				<%= f.text_area :introduction, size: "50x10", placeholder: "50文字以内" %><br>
+				<%= f.text_area :introduction, size: "50x10", placeholder: "50文字以内", class: "introduction-form" %><br>
 				<%= f.submit 'Update User', class: "btn btn-default" %>
 			<% end %>
 		</div>

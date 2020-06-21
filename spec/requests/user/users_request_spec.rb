@@ -9,7 +9,7 @@ RSpec.describe "User::Users", type: :request do
 			context '新規登録画面に遷移' do
 				it '新規登録に成功する' do
 					fill_in 'user[name]', with: Faker::Internet.username(specifier: 5)
-					fill_in 'user[email]', with: "202005@example.com"
+					fill_in 'user[email]', with: Faker::Internet.email
 					fill_in 'user[password]', with: 'password'
 					fill_in 'user[password_confirmation]', with: 'password'
 					fill_in 'user[postal_code]', with: 'postal_code'

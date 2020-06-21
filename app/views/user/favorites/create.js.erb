@@ -4,5 +4,4 @@ if (location.pathname == '/diaries' || location.pathname == '/search' || locatio
     $("#diary_<%= @diary.id %>").html("<%= j(render 'user/diaries/favorite', diary: @diary, favorites: @diary.favorites) %>")
 }
 //matchを使用することでlocation.pathnameと一致するかどうか真偽している
-//正規文字使用
 //１行目はdiariesのindexページまたはusersのshowページだった場合２行目が実行される

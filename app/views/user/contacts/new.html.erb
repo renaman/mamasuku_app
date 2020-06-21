@@ -3,18 +3,20 @@
     <div class="col-md-8 col-md-offset-3">
 		<h2>Contact Page</h2>
 		<% if @contact.errors.any? %>
-			<%= @contact.errors.count %>error prohibited this obj from being saved:
+			<p id="error-message">
+				<%= @contact.errors.count %>error prohibited this obj from being saved:<br>
 				<% @contact.errors.full_messages.each do |message| %>
 					<%= message %>
 				<% end %>
+			</p>
 		<% end %>
 		<%= form_for @contact, url: contacts_path do |f| %>
 			<%= f.label :name %><br>
-			<%= f.text_field :name, placeholder: '名前', size: "50x5" %><br>
+			<%= f.text_field :name, placeholder: '名前', class: "contact-form", size: "50x5" %><br>
 			<%= f.label :email %><br>
-			<%= f.text_field :email, placeholder: 'メールアドレス', size: "50x5" %><br>
+			<%= f.text_field :email, placeholder: 'メールアドレス', class: "contact-form", size: "50x5" %><br>
 			<%= f.label :message %><br>
-			<%= f.text_area :message, placeholder: 'ここにメッセージを', size: "80x20" %><br>
+			<%= f.text_area :message, placeholder: 'ここにメッセージを', class: "message-form" %><br>
 			<%= f.submit 'Sent Mail', class: "btn btn-default" %>
 		<% end %>
 	</div>

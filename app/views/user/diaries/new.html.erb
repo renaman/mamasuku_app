@@ -5,17 +5,19 @@
 
 			<%= form_for(@diary, url: diaries_path) do |f| %>
 				<% if @diary.errors.any? %>
-					<%= @diary.errors.count %>error prohibited this obj from being saved:
+					<p id="error-message">
+						<%= @diary.errors.count %>error prohibited this obj from being saved:<br>
 						<% @diary.errors.full_messages.each do |message| %>
-						<%= message %>
-					<% end %>
+							<%= message %>
+						<% end %>
+					</p>
 				<% end %><br>
 				<%= f.label :title %><br>
-				<%= f.text_field :title, placeholder: '20文字以内', size: "50x5" %><br>
+				<%= f.text_field :title, placeholder: '20文字以内', class: "title-form", size: "50x5" %><br>
 				<%= f.label :image %>
 				<%= f.attachment_field :image %><br>
 				<%= f.label :body %><br>
-				<%= f.text_area :body, placeholder: '20文字以上500文字以内', size: "80x20" %><br>
+				<%= f.text_area :body, placeholder: '20文字以上500文字以内', class: "body-form" %><br>
 				<%= f.submit 'Create Diary', class: "btn btn-default" %>
 			<% end %>
 	</div>

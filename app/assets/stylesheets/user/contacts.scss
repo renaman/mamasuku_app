@@ -5,3 +5,21 @@
 .thanks-content {
 	margin-top: 100px;
 }
+.message-form {
+	width: 50%;
+	height: 300px;
+}
+
+/*レスポンシブ対応425px以下*/
+@media screen and (max-width:425px) {
+	.message-form {
+		width: 96%;
+		height: 200px;
+	}
+	.contact-form {
+	width: 96%;
+	}
+	.thanks-content {
+		font-size: 20px;
+	}
+}

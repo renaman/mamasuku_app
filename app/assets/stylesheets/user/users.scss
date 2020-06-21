@@ -1,6 +1,7 @@
 // Place all the styles related to the user/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .leave-content {
 	letter-spacing: 4px;
 	margin-top: 20px;
@@ -19,9 +20,27 @@
   	border-radius: 50%;
   	color: red;
 }
-a.btn.btn-default.follow-btn, a.btn.btn-default.chat-btn, input.btn.btn-default.chat-start {
+a.btn.btn-default.follow-btn, a.btn.btn-default.chat-btn, .btn.btn-default.chat-start {
     padding: 2px 15px 2px;
 }
 .profile-table {
 	margin-top: 10px;
+}
+
+@media screen and (max-width:425px) {
+	.leave-content {
+		font-size: 11px;
+		letter-spacing: 0px;
+	}
+	.introduction-form {
+		width: 96%;
+	}
+}
+
+/*レスポンシブ対応425px~768px*/
+@media screen and (min-width:425px) and (max-width:768px) {
+	.leave-content {
+		font-size: 12px;
+		letter-spacing: 0px;
+	}
 }
