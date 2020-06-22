@@ -149,7 +149,7 @@ img.attachment.user.profile_image.img-circle {
 .btn-link, a {
 	color: black;
 }
-.btn-link:hover, a:hover {
+.btn-link:hover {
 	color: white;
 	background-color: #d8bfd8;
 	text-decoration: none;
@@ -178,6 +178,15 @@ h2, thead, footer, .paging {
 }
 #error-message, #error_explanation {
 	color: #dc143c;
+}
+#back {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+.glyphicon.glyphicon-circle-arrow-up {
+    font-size: 40px;
+    color: #F19C99;
 }
 
 /*レスポンシブ対応375px以下*/
@@ -252,6 +261,9 @@ h2, thead, footer, .paging {
 	.show-image {
 		width: 96%;
 		height: 270px;
+	}
+	#back {
+		right: 4px;
 	}
 }
 

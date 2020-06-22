@@ -9,7 +9,6 @@ class User::UsersController < ApplicationController
 		@user_user_rooms = UserRoom.where(user_id: @user.id)
 		if @user.id == current_user.id
 		else
-			# 変数名の命名規則
 			@current_user_rooms.each do |cu|
 				@user_user_rooms.each do |u|
 					if cu.room_id == u.room_id then
