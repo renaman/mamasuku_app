@@ -15,7 +15,6 @@ class User::RoomsController < ApplicationController
     	@room = Room.find(params[:id])
     	user_room = @room.user_rooms.where.not(user_id: current_user.id).take
     	@user = user_room.user
-    	# => の記述を書き換える
     	if UserRoom.where(user_id: current_user.id, room_id: @room.id).present?
       		@chats = @room.chats.page(params[:page]).reverse_order.per(10)
       		@chat = Chat.new(room_id: @room.id)

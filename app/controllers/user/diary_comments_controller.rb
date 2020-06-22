@@ -15,10 +15,7 @@ class User::DiaryCommentsController < ApplicationController
 
 	def destroy
 		@diary = Diary.find(params[:diary_id])
-		@diary_comment = DiaryComment.find(params[:id])#user_idがnilと言われたのでparamsにuser_idを入れた
-		#if @diary_comment.user != current_user
-			
-		#end
+		@diary_comment = DiaryComment.find(params[:id])
 		@diary_comment.destroy
 		redirect_to diary_path(@diary)
 	end
