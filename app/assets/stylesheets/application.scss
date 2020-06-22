@@ -182,7 +182,7 @@ h2, thead, footer, .paging {
 #back {
 	position: fixed;
 	right: 20px;
-	bottom: 20px;
+	bottom: 30px;
 }
 .glyphicon.glyphicon-circle-arrow-up {
     font-size: 40px;
@@ -240,10 +240,10 @@ h2, thead, footer, .paging {
  		table-layout: fixed;
  	}
  	th {
- 		font-size: 10px;
+ 		font-size: 11px;
  	}
  	td {
- 		font-size: 11px;
+ 		font-size: 13px;
  	}
  	a.btn.btn-default.follow-btn, a.btn.btn-default.chat-btn, input.btn.btn-default.chat-start　{
  		font-size: 12px;
@@ -263,7 +263,7 @@ h2, thead, footer, .paging {
 		height: 270px;
 	}
 	#back {
-		right: 4px;
+		right: 16px;
 	}
 }
 
@@ -312,7 +312,6 @@ h2, thead, footer, .paging {
  	h2, thead, footer, .paging, .nav {
 		font-family: 'azuki';
 	}
- 	
 }
 
 /*レスポンシブ対応1024px以下*/
