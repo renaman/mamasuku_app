@@ -1,5 +1,5 @@
 # まますく
-<img src="app/assets/images/logo.jpg" width="100" height="100">
+<img src="app/assets/images/logo.jpg" width="200" height="200">
 
 ## サイト概要
 日記作成、コミュニケーションツール、キーワード検索で気になるワードをチェック
