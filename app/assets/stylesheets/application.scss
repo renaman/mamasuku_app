@@ -160,14 +160,10 @@ img.attachment.user.profile_image.img-circle {
    font-family: 'azuki';
    src: font-url('azuki.ttf');
  }
-a.btn.btn-default.follow-btn, input.btn.btn-default, tbody, label, .title-head, .top-contant, .about-content, #notice, .label-name, .btn-link, .user-name {
+h3, a.btn.btn-default.follow-btn, input.btn.btn-default, tbody, label, .title-head, .top-contant, .about-content, #notice, .label-name, .btn-link, .user-name {
 	font-family: 'azuki';
 	font-size: 16px;
 	font-weight: bold;
-}
-.comment-td {
-	font-family: normal;
-	font-weight: normal;
 }
 h2, thead, footer, .paging {
 	font-family: 'CabinSketch-Bold';
@@ -187,6 +183,9 @@ h2, thead, footer, .paging {
 .glyphicon.glyphicon-circle-arrow-up {
     font-size: 40px;
     color: #F19C99;
+}
+h3 {
+	font-size: 24px;
 }
 
 /*レスポンシブ対応375px以下*/
@@ -218,11 +217,11 @@ h2, thead, footer, .paging {
  	}
  	.footer-content {
 		text-align: center;
-		font-size: 14px;
+		font-size: 16px;
 		margin-bottom: 20px;
 	}
 	.footer-link {
-		font-size: 16px;
+		font-size: 18px;
 		margin-left: 10px;
 		display: inline-block;
 		margin-bottom: 15px;
@@ -240,7 +239,7 @@ h2, thead, footer, .paging {
  		table-layout: fixed;
  	}
  	th {
- 		font-size: 11px;
+ 		font-size: 13px;
  	}
  	td {
  		font-size: 13px;
@@ -264,6 +263,9 @@ h2, thead, footer, .paging {
 	}
 	#back {
 		right: 16px;
+	}
+	h3 {
+		font-size: 16px;
 	}
 }
 

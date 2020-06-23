@@ -26,6 +26,7 @@
 	text-align: center;
 	margin-top: 60px;
 	margin-bottom: 60px;
+	font-size: 16px;
 }
 .bottom-box {
 	border: 2px solid #F8E3F0;
@@ -44,6 +45,11 @@
 .new-form {
 	margin: 0 auto;
 }
+.comment-td {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+
+}
 
 /*レスポンシブ対応425px以下*/
 @media screen and (max-width:425px) {
@@ -56,6 +62,9 @@
 	}
 	.bottom-box {
 		width: 98%;
+	}
+	.comment-td {
+		font-size: 12px;
 	}
 
 }
