@@ -1,4 +1,5 @@
 # まますく
+<img src="app/assets/images/logo.jpg" width="100" height="100">
 
 ## サイト概要
 日記作成、コミュニケーションツール、キーワード検索で気になるワードをチェック
