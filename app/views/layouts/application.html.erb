@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    <!-- header -->
     <header class="top-head">
       <div class="nav-image">
         <%= image_tag 'logo.jpg', style: "width:200px; height:200px;" %>
@@ -58,17 +59,20 @@
         </div>
       <% end %>
     <% end %>
+    <!--フラッシュメッセージ -->
     <p id="notice"><%= notice %></p>
     <div id="wrapper">
     <main>
     <%= yield %>
     </main>
     </div>
+    <!-- Topに戻るボタン -->
     <span id="back">
       <%= link_to "#" do %>
         <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
       <% end %>
     </span>
+    <!-- footer -->
     <footer>
       <div class="footer-content">
         (c)2020 MamaSuku Inc. All rights reserved.

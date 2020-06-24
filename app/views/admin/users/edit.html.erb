@@ -1,7 +1,7 @@
 <div class="container main-container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
-			<h2>Edit User Page</h2>
+			<h2>Edit UserPage</h2>
 			<%= form_for(@user, url: admin_user_path(@user)) do |f| %>
 				<% if @user.errors.any? %>
 					<%= @user.errors.count %>error prohibited this obj from being saved:

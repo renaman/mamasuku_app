@@ -19,8 +19,8 @@
   				<% end %>
 			</div>
 		</div>
-		<div class="col-md-12 text-center">
 
+		<div class="col-md-12 text-center">
 			<%= form_with model: @chat, data: {remote: true} do |f| %>
 				<%= f.text_field :message, placeholder: "メッセージをここに", class: "chat-form", size: "50x5"%>
 				<%= f.hidden_field :room_id %>
@@ -28,7 +28,6 @@
 			<div class="paging">
 				<%= paginate @chats %>
 			</div>
-	
 		</div>
 	</div>
 </div>
