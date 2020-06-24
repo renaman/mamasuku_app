@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
 			<h2>Edit User</h2>
-			
+			<%= attachment_image_tag @user, :profile_image, format: 'jpg', size: "130x110", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %><br>
 			<%= form_for(@user, url: user_path(@user)) do |f| %>
 				<% if @user.errors.any? %>
 					<%= @user.errors.count %>
