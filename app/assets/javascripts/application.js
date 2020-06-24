@@ -33,13 +33,19 @@ $(function(){
 	})
 })
 
+
 $(document).on('turbolinks:load', function () {
+	//リロードするとsliderが２回読み込まれる為、改善策として現時点では強制リロードすることとした
+	if($('.slider').hasClass('slick-initialized')){
+		window.location.reload();
+        }
     $('.slider').slick({
         dots: true,
         autoplay: true,
         autoplaySpeed: 4000,
     });
 });
+
 
 $(function() {
 	$('#back a').on('click',function(event){
