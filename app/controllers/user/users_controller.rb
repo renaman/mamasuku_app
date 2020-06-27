@@ -7,8 +7,7 @@ class User::UsersController < ApplicationController
 		@diaries = @user.diaries.page(params[:page]).reverse_order
 		@current_user_rooms = UserRoom.where(user_id: current_user.id)
 		@user_user_rooms = UserRoom.where(user_id: @user.id)
-		if @user.id == current_user.id
-		else
+		unless @user.id == current_user.id
 			@current_user_rooms.each do |cu|
 				@user_user_rooms.each do |u|
 					if cu.room_id == u.room_id then
@@ -17,8 +16,7 @@ class User::UsersController < ApplicationController
 					end
 				end
 			end
-			if @is_room
-			else
+			unless @is_room
 				@room = Room.new
 				@user_room = UserRoom.new
 			end

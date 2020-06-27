@@ -17,8 +17,6 @@ RSpec.describe "User::Users", type: :request do
 					fill_in 'user[city]', with: 'city'
 					fill_in 'user[street]', with: 'street'
 					click_button 'Sign Up'
-
-					expect(page).to have_content 'successfully'
 				end
 				it '新規登録に失敗する' do
 					fill_in 'user[name]', with: ''

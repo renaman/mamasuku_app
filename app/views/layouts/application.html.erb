@@ -30,7 +30,7 @@
               <li><%= link_to 'Contact', admin_contacts_path, class: "nav-link" %></li>
               <li><%= link_to 'LogOut', destroy_admin_session_path, method: :delete, class: "nav-link" %></li>
             <% else %>
-              <li><%= link_to 'About', homes_about_path, class: "nav-link", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'About', homes_about_path, class: "nav-link" %></li>
               <li><%= link_to 'UserPage', root_path, class: "nav-link" %></li>
               <li><%= link_to 'LogIn', new_admin_session_path, class: "nav-link" %></li>
             <% end %>
@@ -41,7 +41,7 @@
             <li><%= link_to 'LogOut', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
           <% else %>
             <li><%= link_to 'Top', root_path, class: "nav-link" %></li>
-            <li><%= link_to 'About', homes_about_path, class: "nav-link", data: {"turbolinks" => false} %></li>
+            <li><%= link_to 'About', homes_about_path, class: "nav-link" %></li>
             <li><%= link_to 'SignUp', new_user_registration_path, class: "nav-link" %></li>
             <li><%= link_to 'LogIn', new_user_session_path, class: "nav-link" %></li>
           <% end %>
