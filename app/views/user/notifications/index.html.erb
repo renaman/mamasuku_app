@@ -4,8 +4,6 @@
 			<h2 class="sub-title">Notification</h2>
 				<% if @notifications.exists? %>
 					<div class="users-index">
-					<%#= render 'notification',collection:@notifications%>
-					<%#= render 'notification',notification:@notification %>
 						<%= render @notifications %>
 						<div class="paging">
 							<%= paginate @notifications %>
