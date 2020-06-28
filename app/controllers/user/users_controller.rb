@@ -7,18 +7,18 @@ class User::UsersController < ApplicationController
 		@diaries = @user.diaries.page(params[:page]).reverse_order
 		@current_user_rooms = UserRoom.where(user_id: current_user.id)
 		@user_user_rooms = UserRoom.where(user_id: @user.id)
+
 		unless @user.id == current_user.id
-			@current_user_rooms.each do |cu|
-				@user_user_rooms.each do |u|
-					if cu.room_id == u.room_id then
-						@is_room = true
-						@room_id = cu.room_id
-					end
-				end
-			end
-			unless @is_room
+			@current_user_room_ids = UserRoom.where(user_id: current_user.id).select(:room_id)
+			@target_room = UserRoom.find_by(user_id: @user.id, room_id: @current_user_room_ids)
+			
+			if @target_room == nil
+				@is_room = false
 				@room = Room.new
 				@user_room = UserRoom.new
+			else 
+				@is_room = true
+				@room_id = @target_room.room_id			
 			end
 		end
 	end

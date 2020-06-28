@@ -19,7 +19,7 @@
 			<th class="right">
 				<% if @user.id != current_user.id %>
   					<% if @is_room == true %>
-    					<a class="btn btn-default chat-btn" href="/rooms/<%= @room_id %>">チャットへ</a>
+  						<%= link_to 'チャットへ', room_path(@room_id), class: "btn btn-default chat-btn" %>
   					<% else %>
     					<%= form_for @room do |f| %>
       						<%= fields_for @user_room do |e| %>
