@@ -13,7 +13,7 @@
 			</div>
 			<div class="bottom-box">
 				<span class="user-name">By:</span>
-				<%= attachment_image_tag @diary.user, :profile_image, size: "30x30", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+				<%= attachment_image_tag @diary.user, :profile_image, size: "30x30", fallback: "human.jpg", class: "img-circle" %>
 				<%= link_to user_path(@diary.user), class: "btn-link" do %>
 					<%= @diary.user.name %>
 				<% end %>

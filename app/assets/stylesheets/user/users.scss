@@ -26,7 +26,9 @@ a.btn.btn-default.follow-btn, a.btn.btn-default.chat-btn, .btn.btn-default.chat-
 .profile-table {
 	margin-top: 10px;
 }
-
+.img-circle {
+	border:3px solid #F8E3F0;
+}
 @media screen and (max-width:425px) {
 	.leave-content {
 		font-size: 11px;
