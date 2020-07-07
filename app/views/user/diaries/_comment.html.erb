@@ -2,7 +2,7 @@
 	<% diary_comments.each do |diary_comment| %>
 		<tr>
 			<td class="long-td">
-				<%= attachment_image_tag diary_comment.user, :profile_image, size: "30x30", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+				<%= attachment_image_tag diary_comment.user, :profile_image, size: "30x30", fallback: "human.jpg", class: "img-circle" %>
 				<%= link_to user_path(diary_comment.user), class: "btn-link" do %>
 					<%= diary_comment.user.name %>
 				<% end %>

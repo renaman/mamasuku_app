@@ -12,7 +12,7 @@
 		<% users.each do |user| %>
 			<tr>
 				<td>
-					<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "30x30", fallback: "human.jpg", class: "img-circle", style: "border:3px solid #F8E3F0;" %>
+					<%= attachment_image_tag user, :profile_image, format: 'jpg', size: "30x30", fallback: "human.jpg", class: "img-circle" %>
 				</td>
 				<td>
 					<%= link_to user.name, user_path(user), class: "btn-link" %>
